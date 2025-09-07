@@ -1,18 +1,22 @@
 <script setup>
-import Navbar from '@/components/navbar/Navbar.vue'
+import Navbar_home from "@/components/home/Dashbord_home.vue";
+import Dashbord from "../components/home/main_home.vue";
+
+  const icons = [
+    'mdi-facebook',
+    'mdi-twitter',
+    'mdi-linkedin',
+    'mdi-instagram',
+  ]
 </script>
 
 <template>
-  <!-- navbar -->
-  <header>
-   <Navbar />
-  </header>
-  <!-- main page in home -->
-  <main justify-center class="align-center">
-    <login/>
-  </main>
-  <!-- footer -->
-   <footer>
-    <p class="text-center">© 2023 Your Company. All rights reserved.</p>
-   </footer>
+  <div>
+    <!-- Navbar and Dashboard together -->
+    <Navbar_home />
+
+    <!-- Footer -->
+  
+  </div>
 </template>
+

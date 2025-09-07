@@ -1,6 +1,10 @@
 import { createRouter, createWebHistory } from "vue-router";
 import HomeView from "../views/HomeView.vue";
-import Dashbord from "@/components/dashbord/Dashbord.vue";
+// import Dashbord from "../components/home/main_home.vue";
+import Dashbord_about from "../components/about/Dashbord_about.vue";
+import infomation from "../components/home/All_infomation.vue";
+import events from "../components/events/Events_dashbord.vue";
+import partner from "../components/partner/Partner_dashbord.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -10,24 +14,27 @@ const router = createRouter({
       name: "home",
       component: HomeView,
     },
-    // {
-    //   path: "/login",
-    //   name: "login",
-    //   component: () => import("../components/Login.vue"),
-    //   meta: { requiresAuth: false, requiresRole: "admin" },
-    // },
     {
-      path: "/user_dashbord",
-      name: "user_dashbord  ",
-      component: () => import("../components/dashbord/User_dashbord.vue"),
-      meta: { requiresAuth: false, requiresRole: "user" },
+      path: "/dashbord_about",
+      name: "dashbord_about",
+      component: Dashbord_about,
+      // meta: { requiresAuth: true }, // protect this route
     },
     {
-      path: "/dashbord",
-      name: "dashbord",
-      component: Dashbord,
-      meta: { requiresAuth: true }, // protect this route
+      path: "/all_infomation",
+      name: "all_infomation",
+      component: infomation,
     },
+    {
+      path: "/events",
+      name: "events",
+      component: events,
+    },
+    {
+      path: "/partner",
+      name: "partner",
+      component: partner,
+    }
   ],
 });
 
