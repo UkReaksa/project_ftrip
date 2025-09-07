@@ -102,26 +102,27 @@
       </div>
     </v-img>
   </div>
-
-  <!-- Section Title -->
-  <v-container class="py-6">
-    <h2 class="section-title">FTRIP MEMBERS</h2>
   </v-container>
-</v-container>
 
-    <v-main class="mt-2">
-     
+  <v-main>
+  <!-- Add small margin-top here -->
+  <div class="mt-1">
+    <Partner_team />
+  </div>
 
-      <!-- Dashboard -->
-      <div class="mt-5">
-        <!-- Add your dashboard content here -->
-      </div>
-    </v-main>
+  <!-- Dashboard -->
+  <div class="mt-1">
+    `<Members />
+  </div>
+</v-main>
+
   </v-app>
 </template>
 
 <script setup>
 import { ref } from "vue";
+import Partner_team from "./Partner_team.vue";
+import Members from "./members.vue";
 
 // Colors
 const navColor = "#05204A";
@@ -129,13 +130,13 @@ const navColor1 = "#FFFFFF";
 
 // Navigation links
 const links = [
-  { text: "Home", url: "#" },
-  { text: "Partner", url: "#" },
-  { text: "Service", url: "#" },
-  { text: "Research & Innovation", url: "#" },
-  { text: "Events", url: "#" },
-  { text: "Publications", url: "#" },
-  { text: "About us", url: "#" },
+  { text: "Home", to: "/" },
+  { text: "Partner", to: "/partner" },
+  { text: "Service", to: "/service" },
+  { text: "Research & Innovation", to: "/research" },
+  { text: "Events", to: "/events" },
+  { text: "Publications", to: "/publications" },
+  { text: "About Us", to: "/dashbord_about" },
 ];
 
 // Drawer state

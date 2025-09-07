@@ -3,7 +3,7 @@
   "about_us": [
     {
       "id": 1,
-      "title": "Our Mission",
+      "title": "Who We Are",
       "description": "To provide the best food delivery service in the country"
     },
     {
@@ -13,7 +13,7 @@
     },
     {
       "id": 3,
-      "title": "Our Values",
+      "title": "Our Mission",
       "description": "Customer satisfaction, Quality service, Integrity, Innovation"
     }
   ],
@@ -41,6 +41,112 @@
       "id": 2,
       "title": "Innovation in Food Packaging",
       "description": "Exploring new materials and designs for sustainable food packaging."
+    }
+  ],
+  "partners": [
+    {
+      "id": 1,
+      "title": "Ministry of Industry, Technology and Innovation",
+      "phone": "+855 86 638 641",
+      "email": "phalsophanin@gmail.com",
+      "address": "45 Preah Norodom Boulevard, Sangkat Phsar Thmey III, Khan Daun Penh, Phnom Penh, 120203",
+      "partner_link": "https://misti.gov.kh/",
+      "partner_description": "Leading company in food technology.",
+      "image": "./image/minitry.png",
+      "video": "https://www.example.com/video_a"
+    },
+    {
+      "id": 2,
+      "title": "National University of Battambang (NUBB)",
+      "phone": "+855 88 242 4698",
+      "email": "srean.pao@nubb.edu.kh",
+      "address": "36P9+GV5, University Rd, Krong Battambang",
+      "partner_link": "https://nubb.edu.kh/en/",
+      "partner_description": "Innovative solutions for food delivery.",
+      "image": "./image/nubb.png",
+      "video": "https://www.example.com/video_b"
+    },
+     {
+      "id": 3,
+      "title": "Fisheries Administration",
+      "phone": "+855 88 242 4698",
+      "email": "phalsophanin@gmail.com",
+      "address": "No. 186 Preah Norodom Blvd (41), Phnom Penh 12302",
+      "partner_link": "https://fisheries-administration.gov.kh/en/",
+      "partner_description": "Innovative solutions for food delivery.",
+      "image": "./image/jolphal.png",
+      "video": "https://www.example.com/video_b"
+    },
+     {
+      "id": 4,
+      "title": "Institute of Technology (ITC)",
+      "phone": "+855 88 242 4698",
+      "email": "phalsophanin@gmail.com",
+      "address": "Russian Conf Norodom Boulevard, Phnom Penh 12302",
+      "partner_link": "https://itc.edu.kh/en/",
+      "partner_description": "Innovative solutions for food delivery.",
+      "image": "./image/itc.png",
+      "video": "https://www.example.com/video_b"
+    },
+     {
+      "id": 5,
+      "title": "Royal University of Agriculture",
+      "phone": "+855 88 242 4698",
+      "email": "phalsophanin@gmail.com",
+      "address": "Sangkat/Khan Dangkor, Phnom Penh, Cambodia",
+      "partner_link": "https://nubb.edu.kh/en/",
+      "partner_description": "Innovative solutions for food delivery.",
+      "image": "./image/Agriculture.png",
+      "video": "https://www.example.com/video_b"
+    },
+     {
+      "id": 6,
+      "title": "Prek Leap National College of Agriculture ",
+      "phone": "+855 88 242 4698",
+      "email": "phalsophanin@gmail.com",
+      "address": "Street 6A Prek Leap Commune,Chhroy Changva Distric, Phnom Penh",
+      "partner_link": "https://nia.edu.kh/index.html",
+      "partner_description": "Innovative solutions for food delivery.",
+      "image": "./image/prekleab.png",
+      "video": "https://www.example.com/video_b"
+    },
+     {
+      "id": 7,
+      "title": "Cambodia Food Manufacturing Association",
+      "phone": "+855 88 242 4698",
+      "email": "phalsophanin@gmail.com",
+      "address": "36P9+GV5, University Rd, Krong Battambang",
+      "partner_link": "https://nubb.edu.kh/en/",
+      "partner_description": "Innovative solutions for food delivery.",
+      "image": "./image/Food.png",
+      "video": "https://www.example.com/video_b"
+    },
+    {
+      "id": 8,
+      "title": "Federation of Associations for Small and Medium Enterprises of Cambodia",
+      "phone": "+855 88 242 4698",
+      "email": "phalsophanin@gmail.com",
+      "address": "36P9+GV5, University Rd, Krong Battambang",
+      "partner_link": "https://nubb.edu.kh/en/",
+      "partner_description": "Innovative solutions for food delivery.",
+      "image": "./image/FASMEC.png",
+      "video": "https://www.example.com/video_b"
+    }
+    
+    
+  ],
+
+  "members": [
+    {
+       "id": 1,
+      "title": "Cambodia Food Manufacturing Association",
+      "phone": "123-456-7890",
+      "email": "phalsophanin@gmail.com",
+      "address": "123 Main St, City, Country",
+      "partner_link": "https://www.partnera.com",
+      "partner_description": "Leading company in food technology.",
+      "image": "./image/SVR.png",
+      "video": "https://www.example.com/video_a"
     }
   ]
 }
