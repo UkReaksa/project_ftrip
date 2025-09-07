@@ -74,7 +74,7 @@
     </v-app-bar>
 
     <!-- Mobile Drawer -->
-    <v-navigation-drawer v-model="drawer" temporary>
+    <!-- <v-navigation-drawer v-model="drawer" temporary>
       <v-list dense>
         <v-list-item
           v-for="link in links"
@@ -86,7 +86,7 @@
           <v-list-item-title>{{ link.text }}</v-list-item-title>
         </v-list-item>
       </v-list>
-    </v-navigation-drawer>
+    </v-navigation-drawer> -->
 
     <!-- Main Content -->
      <v-main class="grey lighten-4">
@@ -138,13 +138,14 @@
             <v-card class="rounded-lg pa-6" elevation="2">
               <section>
                 <h2 class="text-h4 font-weight-bold" :style="{ color: '#05204A' }">About Us</h2>
+                <div v-for="item in about_us" :key="item.id">
+                  <h3 :id="item.id" class="text-h5 font-weight-bold mt-6">{{ item.title }}</h3>
+                  <p class="text-body-1 mt-2">
+                    {{ item.description }}
+                  </p>
+                </div>
 
-                <h3 id="who-we-are" class="text-h5 font-weight-bold mt-6">Who we are</h3>
-                <p class="text-body-1 mt-2">
-                  The Food Technology, Research and Innovation Platform (FTRIP) was established under the framework of the CAPFISH-Capture project, supported by the Royal Government of Cambodia and development partners. It serves as a coordination and knowledge hub to promote research, development, and innovation in food systems.
-                </p>
-
-                <h3 id="our-vision" class="text-h5 font-weight-bold mt-6">Our Vision</h3>
+                <!-- <h3 id="our-vision" class="text-h5 font-weight-bold mt-6">Our Vision</h3>
                 <p class="text-body-1 mt-2">
                   To become a leading national platform for food technology research and innovation that contributes to safe, sustainable, and inclusive food systems in Cambodia.
                 </p>
@@ -185,7 +186,7 @@
                   <li>Preak Leap National Institute of Agriculture (PNIA)</li>
                   <li>Cambodia Food Manufacture Association (CFMA)</li>
                   <li>Federation of Associations for Small and Medium Enterprises of Cambodia (FASMEC)</li>
-                </ul>
+                </ul> -->
 
                 <p class="text-body-1 font-weight-bold mt-4">With support and collaboration from:</p>
                 <ul class="text-body-1 mt-2 pl-6">
@@ -241,8 +242,21 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
-
+import { onMounted, ref } from "vue";
+import axios from "axios";
+const about_us = ref([])
+const fetchAboutUs = async () => {
+  try {
+    const response = await axios.get('http://localhost:8000/about_us')
+    about_us.value = response.data
+  } catch (error) {
+    console.error('Error fetching about us data:', error)
+  }
+}
+onMounted( async () => {
+  await fetchAboutUs()
+  console.log(about_us.value)
+})
 // Colors
 const navColor = "#05204A";
 const navColor1 = "#FFFFFF";

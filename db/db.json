@@ -1,0 +1,46 @@
+{
+
+  "about_us": [
+    {
+      "id": 1,
+      "title": "Our Mission",
+      "description": "To provide the best food delivery service in the country"
+    },
+    {
+      "id": 2,
+      "title": "Our Vision",
+      "description": "To be the leading food delivery service in the world"
+    },
+    {
+      "id": 3,
+      "title": "Our Values",
+      "description": "Customer satisfaction, Quality service, Integrity, Innovation"
+    }
+  ],
+  "post_categories": [
+    {
+      "id": 1,
+      "name": "Technology"
+    },
+    {
+      "id": 2,
+      "name": "Health"
+    },
+    {
+      "id": 3,
+      "name": "Lifestyle"
+    }
+  ],
+  "research_innovation": [
+    {
+      "id": 1,
+      "title": "Research on Food Safety",
+      "description": "A comprehensive study on food safety standards and practices."
+    },
+    {
+      "id": 2,
+      "title": "Innovation in Food Packaging",
+      "description": "Exploring new materials and designs for sustainable food packaging."
+    }
+  ]
+}

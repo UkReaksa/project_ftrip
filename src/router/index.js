@@ -5,6 +5,7 @@ import Dashbord_about from "../components/about/Dashbord_about.vue";
 import infomation from "../components/home/All_infomation.vue";
 import events from "../components/events/Events_dashbord.vue";
 import partner from "../components/partner/Partner_dashbord.vue";
+import test from "@/test.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -34,6 +35,11 @@ const router = createRouter({
       path: "/partner",
       name: "partner",
       component: partner,
+    },
+    {
+      path: "/test",
+      name: "test",
+      component: test,
     }
   ],
 });
