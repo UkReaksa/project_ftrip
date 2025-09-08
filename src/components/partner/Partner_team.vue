@@ -5,14 +5,14 @@
     <v-row dense justify="space-around" align="center" mt-5>
       <!-- Loop through partners -->
       <v-col
-        v-for="item in partners"
-        :key="item.id"
+        v-for="(item, index) in partners"
+        :key="index"
         cols="12"
         sm="6"
         md="5"
       
       >
-        <v-card class="pa-3" outlined>
+        <v-card class="pa-3" outlined @click="goToDetail(index)" style="cursor: pointer;">
           <v-row>
             <v-col cols="3" class="d-flex align-center justify-center">
               <v-img
@@ -40,8 +40,10 @@
 <script setup>
 import { onMounted, ref } from 'vue';
 import axios from 'axios';
+import { useRouter } from 'vue-router';
 
 const partners = ref([]);
+const router = useRouter();
 
 const fetchPartners = async () => {
   try {
@@ -52,9 +54,11 @@ const fetchPartners = async () => {
   }
 };
 
-onMounted(() => {
-  fetchPartners();
-});
+onMounted(fetchPartners);
+
+function goToDetail(index) {
+  router.push(`/partner/${index}`);
+}
 </script>
 
 <style scoped>
