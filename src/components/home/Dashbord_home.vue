@@ -110,7 +110,7 @@
         >All</v-btn>
       </div>
      
-        <div >
+        <div class="mt-1">
           <New_infomation />
         </div>
         <div class="text-center">

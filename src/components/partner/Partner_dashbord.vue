@@ -26,25 +26,25 @@
       </div>
 
       <v-spacer></v-spacer>
-
-      <!-- Desktop Menu -->
-      <div class="d-none d-sm-flex align-center">
-        <v-btn
-          v-for="link in links"
-          :key="link.text"
-          :text="link.text"
-          variant="text"
-          class="text-capitalize mx-2"
-        />
+      <div class="d-none d-md-flex">
+        <v-btn to="/" text>Home</v-btn>
+        <v-btn to="/partner" text>Partner</v-btn>
+        <v-btn to="/service" text>Service</v-btn>
+        <v-btn to="/research" text>Research & Innovation</v-btn>
+        <v-btn to="/events" text>Events</v-btn>
+        <v-btn to="/publications" text>Publications</v-btn>
+        <v-btn to="/dashbord_about/" text>About Us</v-btn>
       </div>
 
-      <!-- Mobile Menu Toggle -->
+      
+
+      <!-- ✅ Mobile Menu Toggle -->
       <v-app-bar-nav-icon
         class="d-sm-none mr-4"
         @click.stop="drawer = !drawer"
       />
 
-      <!-- Right Logos -->
+      <!-- ✅ Right Logos -->
       <div class="d-flex align-center mr-4">
         <v-img
           src="/image/1.png"
@@ -73,49 +73,64 @@
       </div>
     </v-app-bar>
 
-    <!-- Drawer (Mobile Menu) -->
+    <!-- ✅ Mobile Drawer -->
     <v-navigation-drawer v-model="drawer" temporary>
-      <v-list dense class="d-flex flex-column justify-center align-center">
+      <v-list dense>
         <v-list-item
           v-for="link in links"
           :key="link.text"
-          :title="link.text"
-        />
+          :to="link.to"
+          link
+          router
+          @click="drawer = false"
+        >
+          <v-list-item-title>{{ link.text }}</v-list-item-title>
+        </v-list-item>
       </v-list>
     </v-navigation-drawer>
 
-    <!-- Page Content -->
-      <!-- Hero Section -->
-   <!-- Hero Section -->
-<v-container fluid class="pa-0">
-  <div class="hero-section">
-    <v-img
-      src="/image/home_photo2.jpg"
-      alt="Members Banner"
-      height="350"
-      class="rounded-lg"
-      cover
-    >
-      <!-- Overlay text -->
-      <div class="overlay">
-        <h1 class="overlay-text">Member & Partner</h1>
+    <!-- ✅ Page Content -->
+    <!-- <v-container fluid class="pa-0">
+      <div class="hero-section">
+        <v-img
+          src="/image/home_photo2.jpg"
+          alt="Members Banner"
+          height="350"
+          class="rounded-lg"
+          cover
+        >
+          <div class="overlay">
+            <h1 class="overlay-text">Member & Partner</h1>
+          </div>
+        </v-img>
       </div>
-    </v-img>
-  </div>
-  </v-container>
+    </v-container> -->
+   <v-main class="mt-2">
+  <div class="carousel-wrapper">
+    <v-carousel cycle hide-delimiter-background height="400">
+      <v-carousel-item src="./image/home_photo.jpg" cover />
+      <v-carousel-item src="./image/home_photo2.jpg" cover />
+      <v-carousel-item src="./image/home_photo.jpg" cover />
+    </v-carousel>
 
-  <v-main>
-  <!-- Add small margin-top here -->
-  <div class="mt-1">
-    <Partner_team />
-  </div>
-
-  <!-- Dashboard -->
-  <div class="mt-1">
-    `<Members />
+    <!-- Overlay text -->
+    <div class="overlay ">
+      <h1 class="overlay-text">Member & Partner</h1>
+    </div>
   </div>
 </v-main>
 
+
+    <v-main>
+
+      <div class="mt-1">
+        <Partner_team />
+      </div>
+
+      <div class="mt-1">
+        <Members />
+      </div>
+    </v-main>
   </v-app>
 </template>
 
@@ -124,23 +139,16 @@ import { ref } from "vue";
 import Partner_team from "./Partner_team.vue";
 import Members from "./members.vue";
 
+
 // Colors
 const navColor = "#05204A";
 const navColor1 = "#FFFFFF";
 
-// Navigation links
-const links = [
-  { text: "Home", to: "/" },
-  { text: "Partner", to: "/partner" },
-  { text: "Service", to: "/service" },
-  { text: "Research & Innovation", to: "/research" },
-  { text: "Events", to: "/events" },
-  { text: "Publications", to: "/publications" },
-  { text: "About Us", to: "/dashbord_about" },
-];
+
 
 // Drawer state
 const drawer = ref(false);
+
 </script>
 
 <style scoped>
@@ -149,8 +157,9 @@ const drawer = ref(false);
 }
 
 .text-subtitle-2 {
-  font-size: 1.1rem; /* Adjusted size */
+  font-size: 1.1rem;
 }
+
 .hero-section {
   position: relative;
 }
@@ -163,7 +172,7 @@ const drawer = ref(false);
   height: 100%;
   display: flex;
   align-items: center;
-  justify-content: center;
+ 
 }
 
 .overlay-text {
@@ -177,5 +186,13 @@ const drawer = ref(false);
   font-size: 1.6rem;
   font-weight: 900;
 }
-
+.overlay-text {
+  color: white;
+  font-size: 2.5rem;
+  font-weight: 800;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+}
+.carousel-wrapper {
+  position: relative;
+}
 </style>

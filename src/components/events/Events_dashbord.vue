@@ -89,120 +89,16 @@
 
     <!-- Main Content -->
     <v-main class="grey lighten-4">
-      <v-container fluid class="py-10">
+      <div  >
         <Dashbord />
-
-        <!-- Events Section -->
-        <h1 class="mb-4">All News</h1>
-
-        <v-row dense>
-          <v-col
-            v-for="event in events"
-            :key="event.id"
-            cols="12"
-            md="4"
-            class="mb-6"
-          >
-            <v-card class="pa-2 hover-card" elevation="3">
-              <!-- Event Image -->
-              <v-img
-                v-if="event.image"
-                :src="event.image"
-                height="200"
-                class="rounded mb-2"
-                cover
-              />
-              <v-img
-                v-else
-                src="/image/default.jpg"
-                height="200"
-                class="rounded mb-2"
-                cover
-              />
-
-              <!-- Title -->
-              <v-card-title class="text-h6 font-weight-bold">
-                {{ event.title }}
-              </v-card-title>
-
-              <!-- Description -->
-              <v-card-text>
-                <p class="description">{{ event.description }}</p>
-
-                <!-- Video -->
-                <!-- <div v-if="event.video" class="mt-3 video-container">
-                  <iframe
-                    :src="getEmbedUrl(event.video)"
-                    frameborder="0"
-                    allowfullscreen
-                  ></iframe>
-                </div> -->
-
-                <!-- Date -->
-                <p class="text-caption text-grey mt-3">
-                  <v-icon size="small" class="mr-1">mdi-calendar</v-icon>
-                  {{ new Date(event.date).toLocaleDateString() }}
-                </p>
-              </v-card-text>
-
-              <!-- Buttons -->
-              <v-card-actions>
-                <v-btn
-                  v-if="event.link"
-                  :href="event.link"
-                  target="_blank"
-                  text
-                  color="primary"
-                >
-                  Learn More
-                </v-btn>
-
-                <v-btn
-                  text
-                  color="secondary"
-                  @click="openDetails(event)"
-                >
-                  View Details
-                </v-btn>
-              </v-card-actions>
-            </v-card>
-          </v-col>
-        </v-row>
-      </v-container>
-
-      <!-- Event Details Modal -->
-      <v-dialog v-model="showModal" max-width="600">
-        <v-card>
-          <v-card-title class="text-h6 font-weight-bold">
-            {{ selectedEvent?.title }}
-          </v-card-title>
-
-          <v-card-text>
-          
-              <p class="text-caption text-grey mt-3">
-              <v-icon size="small" class="mr-1">mdi-calendar</v-icon>
-              {{ selectedEvent ? new Date(selectedEvent.date).toLocaleDateString() : "" }}
-            </p>
-
-            <div v-if="selectedEvent?.video" class="mt-3 video-container">
-              <iframe
-                :src="getEmbedUrl(selectedEvent.video)"
-                frameborder="0"
-                allowfullscreen
-              ></iframe>
-            </div>
-            <p>{{ selectedEvent?.description }}</p>
-          
-          </v-card-text>
-
-          <v-card-actions>
-            <v-spacer></v-spacer>
-            <v-btn text color="primary" @click="closeDetails">Close</v-btn>
-          </v-card-actions>
-        </v-card>
-      </v-dialog>
+         </div>
+      <div class="mt-1">
+        <Events />
+      </div>
     </v-main>
-
+      
+      
+   
     <!-- Footer -->
     <v-footer color="indigo-darken-4" class="py-4">
       <v-container>
@@ -240,6 +136,7 @@
         </v-row>
       </v-container>
     </v-footer>
+  
   </v-app>
 </template>
 
@@ -247,6 +144,7 @@
 import { onMounted, ref } from "vue";
 import axios from "axios";
 import Dashbord from "../home/main_home.vue";
+import Events  from "./Event.vue"; 
 
 // Colors
 const navColor = "#05204A";

@@ -287,6 +287,7 @@ const links = [
   { text: "Publications", to: "/publications" },
   { text: "About Us", to: "/dashbord_about" },
 ];
+
 </script>
 
 <style scoped>

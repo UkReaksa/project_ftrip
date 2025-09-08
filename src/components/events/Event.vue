@@ -1,8 +1,10 @@
 <template>
   <v-container>
+    <h1 class="text-h5 font-weight-bold mb-4">All Events</h1>
+
     <v-row>
       <v-col
-        v-for="(item,index) in events.slice(0, 3)" 
+        v-for="(item, index) in events"
         :key="index"
         cols="12"
         sm="6"
@@ -11,14 +13,13 @@
         <v-card class="mx-auto" max-width="400" elevation="3">
           <v-img :src="item.image" height="180px" cover class="rounded-t-lg" />
 
-          <!-- Clickable area -->
-          <v-card class="ma-2 pa-2 hover:bg-grey-lighten-4 cursor-pointer"
-                  @click="goToDetail(item.id)">
+          <v-card class="ma-2 pa-2" @click="goToDetail(index)">
             <v-card-title class="text-h6 font-weight-bold">
-              {{ item.title }}
+               {{ item.title }}
             </v-card-title>
-            <v-card-subtitle class="text-caption">
-              {{ item.description }}
+
+          <v-card-subtitle class="text-caption ">
+               {{ item.description }}
             </v-card-subtitle>
           </v-card>
         </v-card>
@@ -47,12 +48,6 @@ const fetchEvents = async () => {
 onMounted(fetchEvents);
 
 function goToDetail(index) {
-  router.push(`/event/${index}`); 
+  router.push(`/event/${index}`); // 👈 go by index
 }
 </script>
-
-<style scoped>
-.cursor-pointer {
-  cursor: pointer;
-}
-</style>
