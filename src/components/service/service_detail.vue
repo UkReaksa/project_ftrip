@@ -31,7 +31,7 @@
       <div class="d-none d-md-flex">
         <v-btn to="/" text>Home</v-btn>
         <v-btn to="/partner" text>Partner</v-btn>
-        <v-btn to="/dashbord_service" text>Service</v-btn>
+        <v-btn to="/service" text>Service</v-btn>
         <v-btn to="/research" text>Research & Innovation</v-btn>
         <v-btn to="/events" text>Events</v-btn>
         <v-btn to="/publications" text>Publications</v-btn>
@@ -73,21 +73,21 @@
       </div>
     </v-app-bar>
   
-  <v-main class="my-5" v-if="event">
+  <v-main class="my-5" v-if="service">
     <v-card elevation="2" rounded="lg" class="pa-6">
       <h1 class="text-h5 font-weight-bold mb-2">
-         {{ event.title }}
+         {{ service.title }}
       </h1>
       <v-card>
        <div class="carousel-wrapper">
   <v-carousel cycle hide-delimiter-background height="400">
     <!-- Image -->
-    <v-carousel-item v-if="event.image">
-      <v-img :src="event.image" cover height="400" />
+    <v-carousel-item v-if="service.image">
+      <v-img :src="service.image" cover height="400" />
     </v-carousel-item>
 
     <!-- Video -->
-    <v-carousel-item v-if="event.video">
+    <v-carousel-item v-if="service.video">
       <video
         controls
         style="width: 100%; height: 100%; object-fit: cover; border-radius: 12px;"
@@ -101,7 +101,7 @@
 
       </v-card>
     </v-card> <br>
-    <p>{{ event.description }}</p>
+    <p>{{ service.description }}</p>
   </v-main>
 
   <div v-else class="text-center my-10">
@@ -111,25 +111,42 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from "vue";
-import { useRoute } from "vue-router";
-import axios from "axios";
+import { ref, onMounted } from 'vue';
+import { useRoute } from 'vue-router';
+import axios from 'axios';
 
 const route = useRoute();
-const event = ref(null);
+const service = ref(null);
 const index = ref(null);
 
-const fetchEvent = async () => {
+const fetchServices = async () => {
   try {
-    const response = await axios.get("http://localhost:8000/events");
+    const response = await axios.get("http://localhost:8000/services");
     index.value = parseInt(route.params.index);   // 👈 use "index" param
-    event.value = response.data[index.value];     // 👈 get event by array index
+    service.value = response.data[index.value];     // 👈 get event by array index
   } catch (error) {
     console.error("Error fetching event detail:", error);
   }
 };
-const navColor = "#05204A";
-const navColor1 = "#FFFFFF";
 
-onMounted(fetchEvent);
+// Colors
+const navColor = '#05204A';
+onMounted(fetchServices);
+
+// Technical Services List
+
 </script>
+
+<style scoped>
+.leading-relaxed {
+  line-height: 1.6;
+}
+
+.v-list-item-icon {
+  min-width: 32px;
+}
+
+.v-list-item-title {
+  font-size: 1rem;
+}
+</style>

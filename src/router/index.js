@@ -8,6 +8,7 @@ import partner from "../components/partner/Partner_dashbord.vue";
 import news from "../components/events/News.vue";
 import Partner_infor from "@/components/partner/Partner_infor.vue";
 import dashbord_service from "../components/service/dashbord_service.vue";
+import service_detail from "@/components/service/service_detail.vue";
 import test from "@/test.vue";
 
 
@@ -56,6 +57,12 @@ const router = createRouter({
       path: "/dashbord_service",
       name: "dashbord_service",
       component: dashbord_service,
+    },
+    {
+      path: "/service/:id",
+      name: "service_detail",
+      component: service_detail,
+      props: true
     },
     {
       path: "/test",

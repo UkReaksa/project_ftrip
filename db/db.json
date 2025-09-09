@@ -221,5 +221,31 @@
       "event_status": 1
     }
    
+  ],
+  "services": [
+    {
+      "id": 1,
+      "title": "Food Safety Consultation",
+      "description": "Expert advice on food safety standards and regulations.",
+      "image": "./image/food.png"
+    },
+    {
+      "id": 2,
+      "title": "Packaging Solutions",
+      "description": "Innovative packaging designs to enhance product appeal and sustainability.",
+      "image": "./image/packaging.png"
+    },
+     {
+      "id": 3,
+      "title": "Packaging Solutions",
+      "description": "Innovative packaging designs to enhance product appeal and sustainability.",
+      "image": "./image/packaging.png"
+    },
+     {
+      "id": 4,
+      "title": "Packaging Solutions",
+      "description": "Innovative packaging designs to enhance product appeal and sustainability.",
+      "image": "./image/packaging.png"
+    }
   ]
 }

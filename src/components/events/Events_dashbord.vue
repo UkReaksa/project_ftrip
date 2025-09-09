@@ -30,7 +30,7 @@
       <div class="d-none d-md-flex">
         <v-btn to="/" text>Home</v-btn>
         <v-btn to="/partner" text>Partner</v-btn>
-        <v-btn to="/service" text>Service</v-btn>
+       <v-btn to="/dashbord_service" text>Service</v-btn>
         <v-btn to="/research" text>Research & Innovation</v-btn>
         <v-btn to="/events" text>Events</v-btn>
         <v-btn to="/publications" text>Publications</v-btn>
@@ -266,6 +266,7 @@ body {
 .description {
   display: -webkit-box;
   -webkit-line-clamp: 3;
+  line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
