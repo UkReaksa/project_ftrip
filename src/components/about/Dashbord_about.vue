@@ -32,9 +32,9 @@
         <v-btn to="/" text>Home</v-btn>
         <v-btn to="/partner" text>Partner</v-btn>
        <v-btn to="/dashbord_service" text>Service</v-btn>
-        <v-btn to="/research" text>Research & Innovation</v-btn>
+        <v-btn to="/dadhbord_research" text>Research & Innovation</v-btn>
         <v-btn to="/events" text>Events</v-btn>
-        <v-btn to="/publications" text>Publications</v-btn>
+        <v-btn to="/dadhbord_publication" text>Publications</v-btn>
         <v-btn to="/dashbord_about/" text>About Us</v-btn>
       </div>
 

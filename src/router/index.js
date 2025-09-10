@@ -9,6 +9,8 @@ import news from "../components/events/News.vue";
 import Partner_infor from "@/components/partner/Partner_infor.vue";
 import dashbord_service from "../components/service/dashbord_service.vue";
 import service_detail from "@/components/service/service_detail.vue";
+import Dashbord_publication from "@/components/publication/Dashbord_publication.vue";
+import Dashbord_research from "@/components/Research/Dashbord_research.vue";
 import test from "@/test.vue";
 
 
@@ -63,6 +65,18 @@ const router = createRouter({
       name: "service_detail",
       component: service_detail,
       props: true
+    },
+     {
+      path: "/dadhbord_publication",
+      name: "dashbord_publication",
+      component: Dashbord_publication,
+      
+    },
+    {
+      path: "/dadhbord_research",
+      name: "dadhbord_research",
+      component: Dashbord_research,
+      
     },
     {
       path: "/test",

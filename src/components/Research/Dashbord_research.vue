@@ -107,7 +107,7 @@
         <Dashbord />
       </div>
       <div class="mt-1">
-        <service />
+        <Research /> 
       </div>
 
     </v-main>
@@ -154,7 +154,8 @@
 
 <script setup>
 import { ref } from "vue";
-import service from "./service.vue";
+
+
 
 
 // Colors
@@ -169,9 +170,9 @@ const links = [
   { text: "Home", to: "/" },
   { text: "Partner", to: "/partner" },
   { text: "Service", to: "/service" },
-  { text: "Research & Innovation", to: "/research" },
+  { text: "Research & Innovation", to: "/dadhbord_research" },
   { text: "Events", to: "/events" },
-  { text: "Publications", to: "/publications" },
+  { text: "Publications", to: "/dadsbord_publication" },
   { text: "About Us", to: "/dashbord_about" }, // Consistent route
 ];
 </script>
