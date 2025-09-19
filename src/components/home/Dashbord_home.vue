@@ -178,11 +178,11 @@ const drawer = ref(false);
 // Navigation links for drawer
 const links = [
   { text: "Home", to: "/" },
-  { text: "Partner", to: "/partner_dashbord" },
-  { text: "Service", to: "/service" },
-  { text: "Research & Innovation", to: "/research" },
+  { text: "Partner", to: "/partner" },
+  { text: "Service", to: "/dashbord_service" },
+  { text: "Research & Innovation", to: "/dashboard_research" },
   { text: "Events", to: "/events" },
-  { text: "Publications", to: "/publications" },
+  { text: "Publications", to: "/dadhbord_publication" },
   { text: "About Us", to: "/dashbord_about" },
 ];
 

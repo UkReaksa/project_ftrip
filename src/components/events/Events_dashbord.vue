@@ -71,21 +71,20 @@
         />
       </div>
     </v-app-bar>
-
-    <!-- Mobile Drawer -->
+  <!-- Mobile Drawer -->
     <v-navigation-drawer v-model="drawer" temporary>
       <v-list dense>
         <v-list-item
           v-for="link in links"
           :key="link.text"
           :to="link.to"
-          link
-          @click="drawer = false"
+            link
         >
           <v-list-item-title>{{ link.text }}</v-list-item-title>
         </v-list-item>
       </v-list>
     </v-navigation-drawer>
+
 
     <!-- Main Content -->
     <v-main class="grey lighten-4">
@@ -160,59 +159,61 @@ const selectedEvent = ref(null);
 const links = [
   { text: "Home", to: "/" },
   { text: "Partner", to: "/partner" },
-  { text: "Service", to: "/service" },
-  { text: "Research & Innovation", to: "/research" },
+  { text: "Service", to: "/dashbord_service" },
+  { text: "Research & Innovation", to: "/dadhbord_research" },
   { text: "Events", to: "/events" },
-  { text: "Publications", to: "/publications" },
+  { text: "Publications", to: "/dadhbord_publication" },
   { text: "About Us", to: "/dashbord_about" },
 ];
 
-// Fetch events
-onMounted(() => {
-  axios
-    .get("http://localhost:8000/api/events")
-    .then((response) => {
-      events.value = response.data;
-    })
-    .catch((error) => {
-      console.error("Error fetching events:", error);
-    });
-});
 
-// Modal functions
-const openDetails = (event) => {
-  selectedEvent.value = event;
-  showModal.value = true;
-};
 
-const closeDetails = () => {
-  selectedEvent.value = null;
-  showModal.value = false;
-};
+// // Fetch events
+// onMounted(() => {
+//   axios
+//     .get("http://localhost:8000/api/events")
+//     .then((response) => {
+//       events.value = response.data;
+//     })
+//     .catch((error) => {
+//       console.error("Error fetching events:", error);
+//     });
+// });
 
-// Convert YouTube URL to embed
-const getEmbedUrl = (url) => {
-  if (!url) return "";
+// // Modal functions
+// const openDetails = (event) => {
+//   selectedEvent.value = event;
+//   showModal.value = true;
+// };
 
-  // Regular YouTube URL
-  const regularMatch = url.match(
-    /(?:https?:\/\/)?(?:www\.)?youtube\.com\/watch\?v=([a-zA-Z0-9_-]+)/
-  );
-  if (regularMatch && regularMatch[1]) {
-    return `https://www.youtube.com/embed/${regularMatch[1]}`;
-  }
+// const closeDetails = () => {
+//   selectedEvent.value = null;
+//   showModal.value = false;
+// };
 
-  // Short YouTube URL
-  const shortMatch = url.match(
-    /(?:https?:\/\/)?(?:youtu\.be)\/([a-zA-Z0-9_-]+)/
-  );
-  if (shortMatch && shortMatch[1]) {
-    return `https://www.youtube.com/embed/${shortMatch[1]}`;
-  }
+// // Convert YouTube URL to embed
+// const getEmbedUrl = (url) => {
+//   if (!url) return "";
 
-  // Already an embed URL or other URL
-  return url;
-};
+//   // Regular YouTube URL
+//   const regularMatch = url.match(
+//     /(?:https?:\/\/)?(?:www\.)?youtube\.com\/watch\?v=([a-zA-Z0-9_-]+)/
+//   );
+//   if (regularMatch && regularMatch[1]) {
+//     return `https://www.youtube.com/embed/${regularMatch[1]}`;
+//   }
+
+//   // Short YouTube URL
+//   const shortMatch = url.match(
+//     /(?:https?:\/\/)?(?:youtu\.be)\/([a-zA-Z0-9_-]+)/
+//   );
+//   if (shortMatch && shortMatch[1]) {
+//     return `https://www.youtube.com/embed/${shortMatch[1]}`;
+//   }
+
+//   // Already an embed URL or other URL
+//   return url;
+// };
 
 </script>
 

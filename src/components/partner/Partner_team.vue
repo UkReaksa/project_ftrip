@@ -1,6 +1,6 @@
 <template>
  <div class="px-10 ">
-  <h1 class="section-title">FTRIP Partners</h1>
+  <h1 class="section-title">FTRIP Founders</h1>
 </div><br>
     <v-row dense justify="space-around" align="center" mt-5>
       <!-- Loop through partners -->

@@ -281,12 +281,13 @@ function scrollToSection(id) {
 const links = [
   { text: "Home", to: "/" },
   { text: "Partner", to: "/partner" },
-  { text: "Service", to: "/service" },
-  { text: "Research & Innovation", to: "/research" },
+  { text: "Service", to: "/dashbord_service" },
+  { text: "Research & Innovation", to: "/dadhbord_research" },
   { text: "Events", to: "/events" },
-  { text: "Publications", to: "/publications" },
+  { text: "Publications", to: "/dadhbord_publication" },
   { text: "About Us", to: "/dashbord_about" },
 ];
+
 
 </script>
 
