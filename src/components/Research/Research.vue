@@ -1,74 +1,100 @@
 <template>
-   <!-- Main Content -->
-     <v-main class="grey lighten-4">
-      <v-container fluid class="py-10">
-        <v-row>
-          <!-- Sidebar -->
-          <v-col cols="12" md="3">
-            <v-card class="rounded-lg pa-4" elevation="2">
-              <v-list nav dense>
-                <v-subheader class="font-weight-bold text-h6">About Us</v-subheader>
-                <v-list-item-group color="primary">
-                  <v-list-item @click="scrollToSection('who-we-are')">
-                    <v-list-item-content>
-                      <v-list-item-title>Who We Are</v-list-item-title>
-                    </v-list-item-content>
-                  </v-list-item>
-                  <v-list-item @click="scrollToSection('our-vision')">
-                    <v-list-item-content>
-                      <v-list-item-title>Our Vision</v-list-item-title>
-                    </v-list-item-content>
-                  </v-list-item>
-                  <v-list-item @click="scrollToSection('our-mission')">
-                    <v-list-item-content>
-                      <v-list-item-title>Our Mission</v-list-item-title>
-                    </v-list-item-content>
-                  </v-list-item>
-                  <v-list-item @click="scrollToSection('strategic-objectives')">
-                    <v-list-item-content>
-                      <v-list-item-title>Strategic Objectives</v-list-item-title>
-                    </v-list-item-content>
-                  </v-list-item>
-                  <v-list-item @click="scrollToSection('governance')">
-                    <v-list-item-content>
-                      <v-list-item-title>Governance</v-list-item-title>
-                    </v-list-item-content>
-                  </v-list-item>
-                  <v-list-item @click="scrollToSection('founding-partners')">
-                    <v-list-item-content>
-                      <v-list-item-title>Founding Partners</v-list-item-title>
-                    </v-list-item-content>
-                  </v-list-item>
-                </v-list-item-group>
-              </v-list>
-            </v-card>
-          </v-col>
+  <v-app>
+    <v-container fluid>
+      <v-row>
+        <!-- Left Sidebar -->
+        <v-col cols="12" md="3" class="pa-4">
+          <v-list>
+            <v-list-item>
+              <v-list-item-title>
+                <v-icon class="mr-2">mdi-chevron-right</v-icon>
+                Thematic Areas
+              </v-list-item-title>
+            </v-list-item>
+            <v-list-item>
+              <v-list-item-title>
+                <v-icon class="mr-2" color="primary">mdi-square</v-icon>
+                Key Initiatives
+              </v-list-item-title>
+            </v-list-item>
+          </v-list>
+        </v-col>
 
-          <!-- Main Content -->
-          <v-col cols="12" md="9">
-            <v-card class="rounded-lg pa-6" elevation="2">
-              <section>
-                <h2 class="text-h4 font-weight-bold" :style="{ color: '#05204A' }">About Us</h2>
-                <div v-for="item in Service " :key="item.id">
-                  <h3 :id="item.id" class="text-h5 font-weight-bold mt-6">{{ item.title }}</h3>
-                  <p class="text-body-1 mt-2">
-                    {{ item.description }}
-                  </p>
-                </div>
-
-
-                <p class="text-body-1 font-weight-bold mt-4">With support and collaboration from:</p>
-                <ul class="text-body-1 mt-2 pl-6">
-                  <li>Fisheries Administration, Ministry of Agriculture, Forestry and Fisheries (MAFF)</li>
-                  <li>Ministry of Industry, Science, Technology and Innovation (MISTI)</li>
+        <!-- Content -->
+        <v-col cols="12" md="9" class="pa-4">
+          <!-- Thematic Areas -->
+          <div class="mb-8">
+            <h3 class="text-h5 font-weight-bold mb-4">Thematic Areas</h3>
+            <v-row>
+              <v-col cols="12" md="6">
+                <ul>
+                  <li>Food safety and quality assurance</li>
+                  <li>Postharvest handling and storage</li>
+                  <li>Food processing and value addition</li>
+                  <li>Packaging innovation</li>
+                  <li>Nutrition and sustainable diets</li>
+                  <li>Climate-smart food technologies</li>
                 </ul>
-              </section>
-            </v-card>
-          </v-col>
-        </v-row>
-      </v-container>
-    </v-main>
+              </v-col>
+              <v-col cols="12" md="6">
+                <v-img
+                  src="/image1.jpg"
+                  aspect-ratio="16/9"
+                  class="mb-3 rounded"
+                ></v-img>
+                <v-img
+                  src="/image2.jpg"
+                  aspect-ratio="16/9"
+                  class="mb-3 rounded"
+                ></v-img>
+                <v-img
+                  src="/image3.jpg"
+                  aspect-ratio="16/9"
+                  class="mb-3 rounded"
+                ></v-img>
+              </v-col>
+            </v-row>
+          </div>
+
+          <!-- Key Initiatives -->
+          <div>
+            <h3 class="text-h5 font-weight-bold mb-4">Key Initiatives</h3>
+            <v-row>
+              <v-col cols="12" md="6">
+                <ul>
+                  <li>Food safety and quality assurance</li>
+                  <li>Postharvest handling and storage</li>
+                  <li>Food processing and value addition</li>
+                  <li>Packaging innovation</li>
+                  <li>Nutrition and sustainable diets</li>
+                  <li>Climate-smart food technologies</li>
+                </ul>
+              </v-col>
+              <v-col cols="12" md="6">
+                <v-img
+                  src="/image1.jpg"
+                  aspect-ratio="16/9"
+                  class="mb-3 rounded"
+                ></v-img>
+                <v-img
+                  src="/image2.jpg"
+                  aspect-ratio="16/9"
+                  class="mb-3 rounded"
+                ></v-img>
+                <v-img
+                  src="/image3.jpg"
+                  aspect-ratio="16/9"
+                  class="mb-3 rounded"
+                ></v-img>
+              </v-col>
+            </v-row>
+          </div>
+        </v-col>
+      </v-row>
+    </v-container>
+  </v-app>
 </template>
+
 <script setup>
 import { onMounted, ref } from "vue";
 import axios from "axios";

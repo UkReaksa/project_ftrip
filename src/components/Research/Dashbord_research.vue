@@ -103,9 +103,6 @@
 
     <!-- Main Content -->
     <v-main class="grey lighten-4">
-      <div>
-        <Dashbord />
-      </div>
       <div class="mt-1">
         <Research /> 
       </div>
@@ -154,8 +151,7 @@
 
 <script setup>
 import { ref } from "vue";
-
-
+import Research from "./Research.vue";
 
 
 // Colors
