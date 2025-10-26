@@ -1,10 +1,10 @@
 <template>
   <v-app>
     <!-- Top App Bar -->
-    <v-app-bar :color="navColor"></v-app-bar>
+    <v-app-bar :color="navColor" app></v-app-bar>
 
     <!-- Main Navbar -->
-    <v-app-bar :color="navColor1" flat class="elevation-2 rounded">
+    <v-app-bar :color="navColor1" flat class="elevation-2 rounded" app>
       <div class="d-flex align-center ml-4">
         <v-img
           src="/image/ftrip.png"
@@ -41,6 +41,7 @@
       <v-app-bar-nav-icon
         class="d-md-none mr-4"
         @click.stop="drawer = !drawer"
+        aria-label="Open navigation menu"
       />
 
       <!-- Partner Logos -->
@@ -48,37 +49,41 @@
         <v-img
           src="/image/1.png"
           alt="Company Logo 1"
-          class="rounded"
+          class="rounded mx-1"
           contain
           width="50"
           height="50"
+          loading="lazy"
         />
         <v-img
           src="/image/2.png"
           alt="Company Logo 2"
-          class="rounded"
+          class="rounded mx-1"
           contain
           width="50"
           height="50"
+          loading="lazy"
         />
         <v-img
           src="/image/3.png"
           alt="Company Logo 3"
-          class="rounded"
+          class="rounded mx-1"
           contain
           width="50"
           height="50"
+          loading="lazy"
         />
       </div>
     </v-app-bar>
   <!-- Mobile Drawer -->
-    <v-navigation-drawer v-model="drawer" temporary>
+    <v-navigation-drawer v-model="drawer" temporary app>
       <v-list dense>
         <v-list-item
           v-for="link in links"
           :key="link.text"
           :to="link.to"
             link
+          @click="drawer = false"
         >
           <v-list-item-title>{{ link.text }}</v-list-item-title>
         </v-list-item>

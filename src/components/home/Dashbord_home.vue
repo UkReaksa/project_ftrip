@@ -143,7 +143,7 @@ const links = [
   { text: "Home", to: "/" },
   { text: "Partner", to: "/partner" },
   { text: "Service", to: "/dashbord_service" },
-  { text: "Research & Innovation", to: "/dashboard_research" },
+  { text: "Research & Innovation", to: "/dadhbord_research" },
   { text: "Events", to: "/events" },
   { text: "Publications", to: "/dadhbord_publication" },
   { text: "About Us", to: "/dashbord_about" },

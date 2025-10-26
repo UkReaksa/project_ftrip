@@ -1,4 +1,5 @@
 <template>
+<<<<<<< HEAD
   <v-main class="grey lighten-4">
     <v-container fluid class="py-10">
       <v-row justify="center">
@@ -69,6 +70,102 @@
       </v-row>
     </v-container>
   </v-main>
+=======
+  <v-app>
+    <v-container fluid>
+      <v-row>
+        <!-- Left Sidebar -->
+        <v-col cols="12" md="3" class="pa-4">
+          <v-list>
+            <v-list-item>
+              <v-list-item-title>
+                <v-icon class="mr-2">mdi-chevron-right</v-icon>
+                Thematic Areas
+              </v-list-item-title>
+            </v-list-item>
+            <v-list-item>
+              <v-list-item-title>
+                <v-icon class="mr-2" color="primary">mdi-square</v-icon>
+                Key Initiatives
+              </v-list-item-title>
+            </v-list-item>
+          </v-list>
+        </v-col>
+
+        <!-- Content -->
+        <v-col cols="12" md="9" class="pa-4">
+          <!-- Thematic Areas -->
+          <div class="mb-8">
+            <h3 class="text-h5 font-weight-bold mb-4">Thematic Areas</h3>
+            <v-row>
+              <v-col cols="12" md="6">
+                <ul>
+                  <li>Food safety and quality assurance</li>
+                  <li>Postharvest handling and storage</li>
+                  <li>Food processing and value addition</li>
+                  <li>Packaging innovation</li>
+                  <li>Nutrition and sustainable diets</li>
+                  <li>Climate-smart food technologies</li>
+                </ul>
+              </v-col>
+              <v-col cols="12" md="6">
+                <v-img
+                  src="/image1.jpg"
+                  aspect-ratio="16/9"
+                  class="mb-3 rounded"
+                ></v-img>
+                <v-img
+                  src="/image2.jpg"
+                  aspect-ratio="16/9"
+                  class="mb-3 rounded"
+                ></v-img>
+                <v-img
+                  src="/image3.jpg"
+                  aspect-ratio="16/9"
+                  class="mb-3 rounded"
+                ></v-img>
+              </v-col>
+            </v-row>
+          </div>
+
+          <!-- Key Initiatives -->
+          <div>
+            <h3 class="text-h5 font-weight-bold mb-4">Key Initiatives</h3>
+            <v-row>
+              <v-col cols="12" md="6">
+                <ul>
+                  <li>Food safety and quality assurance</li>
+                  <li>Postharvest handling and storage</li>
+                  <li>Food processing and value addition</li>
+                  <li>Packaging innovation</li>
+                  <li>Nutrition and sustainable diets</li>
+                  <li>Climate-smart food technologies</li>
+                </ul>
+              </v-col>
+              <v-col cols="12" md="6">
+                <v-img
+                  src="/image1.jpg"
+                  aspect-ratio="16/9"
+                  class="mb-3 rounded"
+                ></v-img>
+                <v-img
+                  src="/image2.jpg"
+                  aspect-ratio="16/9"
+                  class="mb-3 rounded"
+                ></v-img>
+                <v-img
+                  src="/image3.jpg"
+                  aspect-ratio="16/9"
+                  class="mb-3 rounded"
+                ></v-img>
+              </v-col>
+            </v-row>
+          </div>
+        </v-col>
+      </v-row>
+    </v-container>
+  </v-app>
+>>>>>>> d25964936f7b86ee7ae9cce80ed6117548d8334c
 </template>
 
 <script setup>
