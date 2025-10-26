@@ -104,12 +104,7 @@
     </v-navigation-drawer>
 
 
-    <!-- Main Content -->
-    <v-main class="grey lighten-4">
-      <div class="mt-1">
-        <Research /> 
-      </div>
-    </v-main>
+   
 
 
     <!-- Footer -->
