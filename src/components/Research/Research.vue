@@ -1,144 +1,205 @@
 <template>
-   <!-- Main Content -->
-     <v-main class="grey lighten-4">
-      <v-container fluid class="py-10">
-        <v-row>
-          <!-- Sidebar -->
-          <v-col cols="12" md="3">
-            <v-card class="rounded-lg pa-4" elevation="2">
-              <v-list nav dense>
-                <v-subheader class="font-weight-bold text-h6">About Us</v-subheader>
-                <v-list-item-group color="primary">
-                  <v-list-item @click="scrollToSection('who-we-are')">
-                    <v-list-item-content>
-                      <v-list-item-title>Who We Are</v-list-item-title>
-                    </v-list-item-content>
-                  </v-list-item>
-                  <v-list-item @click="scrollToSection('our-vision')">
-                    <v-list-item-content>
-                      <v-list-item-title>Our Vision</v-list-item-title>
-                    </v-list-item-content>
-                  </v-list-item>
-                  <v-list-item @click="scrollToSection('our-mission')">
-                    <v-list-item-content>
-                      <v-list-item-title>Our Mission</v-list-item-title>
-                    </v-list-item-content>
-                  </v-list-item>
-                  <v-list-item @click="scrollToSection('strategic-objectives')">
-                    <v-list-item-content>
-                      <v-list-item-title>Strategic Objectives</v-list-item-title>
-                    </v-list-item-content>
-                  </v-list-item>
-                  <v-list-item @click="scrollToSection('governance')">
-                    <v-list-item-content>
-                      <v-list-item-title>Governance</v-list-item-title>
-                    </v-list-item-content>
-                  </v-list-item>
-                  <v-list-item @click="scrollToSection('founding-partners')">
-                    <v-list-item-content>
-                      <v-list-item-title>Founding Partners</v-list-item-title>
-                    </v-list-item-content>
-                  </v-list-item>
-                </v-list-item-group>
-              </v-list>
-            </v-card>
-          </v-col>
+  <v-main class="grey lighten-4">
+    <v-container fluid class="py-10">
+      <v-row justify="center">
+        <v-col cols="12" md="9">
+          <v-card class="rounded-lg pa-6" elevation="0" style="background-color: transparent;">
+            <section class="main-content">
+              <h2 class="text-h4 font-weight-bold" :style="{ color: '#05204A' }">Research & Innovation</h2>
 
-          <!-- Main Content -->
-          <v-col cols="12" md="9">
-            <v-card class="rounded-lg pa-6" elevation="2">
-              <section>
-                <h2 class="text-h4 font-weight-bold" :style="{ color: '#05204A' }">About Us</h2>
-                <div v-for="item in Service " :key="item.id">
-                  <h3 :id="item.id" class="text-h5 font-weight-bold mt-6">{{ item.title }}</h3>
-                  <p class="text-body-1 mt-2">
-                    {{ item.description }}
-                  </p>
+              <!-- Display research/services -->
+              <div v-for="item in service" :key="item.id" class="mt-6">
+                <!-- Content container with border -->
+                <div class="content-border pa-4 mb-6">
+                  <v-row align="start" no-gutters>
+                    <!-- Text content on left -->
+                    <v-col cols="12" md="8" class="pr-md-4">
+                      <h3 :id="'section-' + item.id" class="text-h5 font-weight-bold mb-3">{{ item.title }}</h3>
+
+                      <!-- Description with See More -->
+                      <p
+                        class="text-body-1 description"
+                        :class="{ 'clamped': !expandedItems[item.id] }"
+                      >
+                        {{ item.description }}
+                      </p>
+                      <v-btn
+                        text
+                        small
+                        class="mt-2"
+                        variant="outlined"
+                        @click="toggleExpand(item.id)"
+                      >
+                        {{ expandedItems[item.id] ? "See Less" : "See More" }}
+                      </v-btn>
+                    </v-col>
+
+                    <!-- Images on right -->
+                    <v-col cols="12" md="4">
+                      <div v-if="parseImages(item.images).length > 0" class="images-container">
+                        <div
+                          v-for="(img, index) in parseImages(item.images)"
+                          :key="index"
+                          class="image-item mb-3"
+                        >
+                          <v-img
+                            :src="storageUrl(img)"
+                            :alt="`${item.title} image ${index + 1}`"
+                            height="150"
+                            cover
+                            class="rounded-lg"
+                          ></v-img>
+                        </div>
+                      </div>
+                    </v-col>
+                  </v-row>
                 </div>
+              </div>
 
-
-                <p class="text-body-1 font-weight-bold mt-4">With support and collaboration from:</p>
+              <div class="content-border pa-4 mt-8">
+                <p class="text-body-1 font-weight-bold mb-2">With support and collaboration from:</p>
                 <ul class="text-body-1 mt-2 pl-6">
                   <li>Fisheries Administration, Ministry of Agriculture, Forestry and Fisheries (MAFF)</li>
                   <li>Ministry of Industry, Science, Technology and Innovation (MISTI)</li>
                 </ul>
-              </section>
-            </v-card>
-          </v-col>
-        </v-row>
-      </v-container>
-    </v-main>
+              </div>
+            </section>
+          </v-card>
+        </v-col>
+      </v-row>
+    </v-container>
+  </v-main>
 </template>
+
 <script setup>
-import { onMounted, ref } from "vue";
+import { ref, onMounted } from "vue";
 import axios from "axios";
-import Service from "../service/service.vue";
-const service = ref([])
-const fetchservice = async () => {
+
+const service = ref([]);
+const expandedItems = ref({}); // store expanded state per item
+
+// Toggle expand/collapse
+const toggleExpand = (id) => {
+  expandedItems.value[id] = !expandedItems.value[id];
+};
+
+// Fetch research/services
+const fetchService = async () => {
   try {
-    const response = await axios.get('http://localhost:8000/service')
-    Service.value = response.data
+    const response = await axios.get("https://ftrip.tech/api1/api/service-research-innovations");
+    service.value = response.data.data || [];
+
+    // Initialize expanded state (false for all items)
+    service.value.forEach((item) => {
+      expandedItems.value[item.id] = false;
+    });
+
+    console.log("Fetched service data:", service.value);
   } catch (error) {
-    console.error('Error fetching about us data:', error)
+    console.error("Error fetching service data:", error);
   }
-}
-onMounted( async () => {
-  await fetchservice()
-  console.log(Service.value)
-})
-// Colors
-const navColor = "#05204A";
-const navColor1 = "#FFFFFF";
+};
 
-// Drawer state
-const drawer = ref(false);
+// Helper: build full storage URL
+const storageUrl = (path) => `https://ftrip.tech/storage/${path}`;
 
-function scrollToSection(id) {
-  const element = document.getElementById(id);
-  if (element) {
-    element.scrollIntoView({ behavior: "smooth" });
+// Parse JSON string images to array
+const parseImages = (images) => {
+  try {
+    return JSON.parse(images);
+  } catch {
+    return [];
   }
-}
- const icons = [
-    'mdi-facebook',
-    'mdi-phone',
-    'mdi-linkedin',
-    'mdi-instagram',
-  ]
+};
 
-// Navigation links
-const links = [
-  { text: "Home", to: "/" },
-  { text: "Partner", to: "/partner" },
-  { text: "Service", to: "/service" },
-  { text: "Research & Innovation", to: "/research" },
-  { text: "Events", to: "/events" },
-  { text: "Publications", to: "/publications" },
-  { text: "About Us", to: "/dashbord_about" },
-];
-
+onMounted(fetchService);
 </script>
 
 <style scoped>
 .line-height-1 {
   line-height: 1;
 }
-
 .text-subtitle-2 {
-  font-size: 1.1rem; /* Adjusted size */
+  font-size: 1.1rem;
 }
 body {
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   background-color: #f3f4f6;
   color: #333;
 }
-.v-card, .v-list-item, .v-list-group__header {
+.v-card,
+.v-list-item,
+.v-list-group__header {
   border-radius: 8px !important;
 }
 .main-content h3 {
   color: #05204A;
 }
-.main-content p, .main-content ul li {
+.main-content p,
+.main-content ul li {
   color: #4b5563;
+}
+
+/* New styles for bordered layout */
+.content-border {
+  border: 2px solid #e2e8f0;
+  border-radius: 12px;
+  background-color: white;
+  transition: border-color 0.3s ease;
+}
+.content-border:hover {
+  border-color: #05204A;
+}
+
+.images-container {
+  width: 100%;
+}
+
+.image-item {
+  transition: transform 0.3s ease;
+}
+.image-item:hover {
+  transform: scale(1.02);
+}
+
+/* Responsive adjustments */
+@media (max-width: 960px) {
+  .content-border {
+    margin-bottom: 20px;
+  }
+
+  .images-container {
+    margin-top: 20px;
+  }
+
+  .pr-md-4 {
+    padding-right: 0 !important;
+  }
+}
+
+/* Text alignment */
+.text-content {
+  text-align: left;
+}
+
+/* Image styling */
+.v-img {
+  border: 1px solid #e2e8f0;
+}
+
+/* List styling */
+ul {
+  margin-bottom: 0;
+}
+li {
+  margin-bottom: 4px;
+}
+
+/* Clamp text for "See More" */
+.description.clamped {
+  display: -webkit-box;
+  -webkit-line-clamp: 6; /* show 6 lines */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 </style>

@@ -94,47 +94,10 @@
       <div class="mt-1">
         <Events />
       </div>
-    </v-main>
-      
-      
+    </v-main>  
    
     <!-- Footer -->
-    <v-footer color="indigo-darken-4" class="py-4">
-      <v-container>
-        <v-row>
-          <v-col
-            cols="12"
-            md="6"
-            class="text-caption text-white d-flex flex-column ga-1"
-          >
-            <div class="d-flex align-center ga-2">
-              <v-icon size="small">mdi-email</v-icon>
-              <span>Email: <a href="mailto:srean.pao@nubb.edu.kh" class="text-white">srean.pao@nubb.edu.kh</a></span>
-            </div>
-            <div class="d-flex align-center ga-2">
-              <v-icon size="small">mdi-phone</v-icon>
-              <span>Phone: <a href="tel:+855882424698" class="text-white">+855 882 424 698</a></span>
-            </div>
-            <div class="d-flex align-center ga-2">
-              <v-icon size="small">mdi-earth</v-icon>
-              <span>
-                Follow us:
-                <a href="#" class="text-white">Facebook</a> |
-                <a href="#" class="text-white">LinkedIn</a> |
-                <a href="#" class="text-white">FTRIP Channel</a>
-              </span>
-            </div>
-          </v-col>
-
-          <v-col cols="12" md="6" class="text-caption text-white text-md-right">
-            <p>
-              Food Technology, Research and Innovation Platform (FTRIP) <br />
-              Secretariat: National University of Battambang, Cambodia
-            </p>
-          </v-col>
-        </v-row>
-      </v-container>
-    </v-footer>
+    <Footer />
   
   </v-app>
 </template>
@@ -143,7 +106,8 @@
 import { onMounted, ref } from "vue";
 import axios from "axios";
 import Dashbord from "../home/main_home.vue";
-import Events  from "./Event.vue"; 
+import Events from "./Event.vue"; 
+import Footer from "../footer/Footer.vue";
 
 // Colors
 const navColor = "#05204A";
@@ -165,56 +129,6 @@ const links = [
   { text: "Publications", to: "/dadhbord_publication" },
   { text: "About Us", to: "/dashbord_about" },
 ];
-
-
-
-// // Fetch events
-// onMounted(() => {
-//   axios
-//     .get("http://localhost:8000/api/events")
-//     .then((response) => {
-//       events.value = response.data;
-//     })
-//     .catch((error) => {
-//       console.error("Error fetching events:", error);
-//     });
-// });
-
-// // Modal functions
-// const openDetails = (event) => {
-//   selectedEvent.value = event;
-//   showModal.value = true;
-// };
-
-// const closeDetails = () => {
-//   selectedEvent.value = null;
-//   showModal.value = false;
-// };
-
-// // Convert YouTube URL to embed
-// const getEmbedUrl = (url) => {
-//   if (!url) return "";
-
-//   // Regular YouTube URL
-//   const regularMatch = url.match(
-//     /(?:https?:\/\/)?(?:www\.)?youtube\.com\/watch\?v=([a-zA-Z0-9_-]+)/
-//   );
-//   if (regularMatch && regularMatch[1]) {
-//     return `https://www.youtube.com/embed/${regularMatch[1]}`;
-//   }
-
-//   // Short YouTube URL
-//   const shortMatch = url.match(
-//     /(?:https?:\/\/)?(?:youtu\.be)\/([a-zA-Z0-9_-]+)/
-//   );
-//   if (shortMatch && shortMatch[1]) {
-//     return `https://www.youtube.com/embed/${shortMatch[1]}`;
-//   }
-
-//   // Already an embed URL or other URL
-//   return url;
-// };
-
 </script>
 
 <style scoped>

@@ -11,7 +11,9 @@ import dashbord_service from "../components/service/dashbord_service.vue";
 import service_detail from "@/components/service/service_detail.vue";
 import Dashbord_publication from "@/components/publication/Dashbord_publication.vue";
 import Dashbord_research from "@/components/Research/Dashbord_research.vue";
+import All_publication from "@/components/publication/All_publication.vue";
 import test from "@/test.vue";
+
 
 
 const router = createRouter({
@@ -39,11 +41,12 @@ const router = createRouter({
       component: events,
     },
     {
-      path: "/event/:index",
+      path: "/event/:id",
       name: "News",
       component: news,
-      props: true
+      props: true,
     },
+
     {
       path: "/partner",
       name: "partner",
@@ -53,7 +56,7 @@ const router = createRouter({
       path: "/partner/:index",
       name: "Partner_infor",
       component: Partner_infor,
-      props: true
+      props: true,
     },
     {
       path: "/dashbord_service",
@@ -64,25 +67,28 @@ const router = createRouter({
       path: "/service/:id",
       name: "service_detail",
       component: service_detail,
-      props: true
+      props: true,
     },
-     {
+    {
       path: "/dadhbord_publication",
       name: "dashbord_publication",
       component: Dashbord_publication,
-      
     },
     {
       path: "/dadhbord_research",
       name: "dadhbord_research",
       component: Dashbord_research,
-      
     },
     {
       path: "/test",
       name: "test",
       component: test,
-    }
+    },
+    {
+      path: "/all_publication/:id",
+      name: "all_publication",
+      component: All_publication,
+    },
   ],
 });
 

@@ -107,14 +107,10 @@
     </v-container> -->
    <v-main class="mt-2">
   <div class="carousel-wrapper">
-    <v-carousel cycle hide-delimiter-background height="400">
-      <v-carousel-item src="./image/home_photo.jpg" cover />
-      <v-carousel-item src="./image/home_photo2.jpg" cover />
-      <v-carousel-item src="./image/home_photo.jpg" cover />
-    </v-carousel>
-
+    <!-- banner -->
+    <Banners />
     <!-- Overlay text -->
-    <div class="overlay ">
+    <div class="overlay pt-10">
       <h1 class="overlay-text">Member & Partner</h1>
     </div>
   </div>
@@ -131,6 +127,12 @@
         <Members />
       </div>
     </v-main>
+
+    <!--  Footer -->
+      <div class="mt-5">
+          <Footer />
+      </div>
+  
   </v-app>
 </template>
 
@@ -138,6 +140,8 @@
 import { ref } from "vue";
 import Partner_team from "./Partner_team.vue";
 import Members from "./members.vue";
+import Footer from "../footer/Footer.vue";
+import Banners from "../banner/Banners.vue";
 
 
 // Colors

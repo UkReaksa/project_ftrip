@@ -5,9 +5,7 @@ import { RouterLink, RouterView } from 'vue-router'
  <v-app>
     <v-main>
       <v-container>
-        <router-view />
-
-        
+        <router-view />    
       </v-container>
     </v-main>
   

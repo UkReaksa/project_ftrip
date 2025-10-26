@@ -84,12 +84,8 @@
     </v-navigation-drawer>
 
     <v-main class="mt-2">
-      <v-carousel cycle hide-delimiter-background height="400">
-        <v-carousel-item src="./image/home_photo.jpg" cover />
-        <v-carousel-item src="./image/home_photo2.jpg" cover />
-        <v-carousel-item src="./image/home_photo.jpg" cover />
-      </v-carousel>
-
+      <!-- banner -->
+      <Banners />
       <!-- Dashboard -->
       <div class="mt-4">
         <Dashbord />
@@ -122,42 +118,7 @@
    
  </v-main>
     <!-- Footer -->
-       <v-footer color="indigo-darken-4" class="py-4">
-        <v-container>
-          <v-row>
-            <!-- Left side: contact info -->
-            <v-col cols="12" md="6" class="text-caption text-white d-flex flex-column ga-1">
-              <div class="d-flex align-center ga-2">
-                <v-icon size="small">mdi-email</v-icon>
-                <span>Email: <a href="mailto:srean.pao@nubb.edu.kh" class="text-white">srean.pao@nubb.edu.kh</a></span>
-              </div>
-
-              <div class="d-flex align-center ga-2">
-                <v-icon size="small">mdi-phone</v-icon>
-                <span>Phone: <a href="tel:+855882424698" class="text-white">+855 882 424 698</a></span>
-              </div>
-
-              <div class="d-flex align-center ga-2">
-                <v-icon size="small">mdi-earth</v-icon>
-                <span>
-                  Follow us:
-                  <a href="#" class="text-white">Facebook</a> |
-                  <a href="#" class="text-white">LinkedIn</a> |
-                  <a href="#" class="text-white">FTRIP Channel</a>
-                </span>
-              </div>
-            </v-col>
-
-            <!-- Right side: organization info -->
-            <v-col cols="12" md="6" class="text-caption text-white text-md-right">
-              <p>
-                Food Technology, Research and Innovation Platform (FTRIP) <br />
-                Secretariat: National University of Battambang, Cambodia
-              </p>
-            </v-col>
-          </v-row>
-        </v-container>
-      </v-footer>
+    <Footer />
   </v-app>
 </template>
 
@@ -166,6 +127,8 @@ import { ref } from "vue";
 import Dashbord from "./main_home.vue";
 import New_infomation from "./New_infomation.vue";
 import Ftrip_highlights from "./Ftrip_highlights.vue";
+import Footer from "../footer/Footer.vue";
+import Banners from "../banner/Banners.vue";
 import axios from "axios";
 
 // Colors

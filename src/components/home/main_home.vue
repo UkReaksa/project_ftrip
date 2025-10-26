@@ -33,7 +33,7 @@
 
       <!-- Text Section -->
       <v-col>
-        <v-card class="pa-5 text-center border" elevation="2">
+        <v-card class="pa-5 text-centerv  border" elevation="2">
           <h3 class="font-weight-bold">WELCOME TO FTRIP</h3>
           <p class="text-body-2">
             The Food Technology, Research and Innovation Platform (FTRIP) is a

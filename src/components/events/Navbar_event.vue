@@ -78,20 +78,7 @@
     </v-navigation-drawer>
 
     <v-main class="mt-2">
-      <v-carousel cycle hide-delimiter-background height="400">
-        <v-carousel-item
-          src="https://cdn.vuetifyjs.com/images/cards/docks.jpg"
-          cover
-        />
-        <v-carousel-item
-          src="https://cdn.vuetifyjs.com/images/cards/hotel.jpg"
-          cover
-        />
-        <v-carousel-item
-          src="https://cdn.vuetifyjs.com/images/cards/sunshine.jpg"
-          cover
-        />
-      </v-carousel>
+      <Banners/>
       <!-- dashbord -->
       <div class="mt-5">
         <Dashbord />
@@ -104,6 +91,7 @@
 <script setup>
 import { ref } from "vue";
 import Dashbord from "./Dashbord_home.vue";
+import Banners from "../banner/Banners.vue";
 
 // Colors
 const navColor = "#05204A";

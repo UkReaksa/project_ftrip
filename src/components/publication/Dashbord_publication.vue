@@ -77,11 +77,9 @@
     </v-app-bar>
       <v-main class="mt-2">
   <div class="carousel-wrapper">
-    <v-carousel cycle hide-delimiter-background height="400">
-      <v-carousel-item src="./image/home_photo.jpg" cover />
-      <v-carousel-item src="./image/home_photo2.jpg" cover />
-      <v-carousel-item src="./image/home_photo.jpg" cover />
-    </v-carousel>
+    <!-- banner -->
+    <Banners />
+    <!-- Overlay text -->
   </div>
 </v-main>
     
@@ -113,49 +111,15 @@
     </v-main>
 
     <!-- Footer -->
-    <v-footer color="indigo-darken-4" class="py-4">
-      <v-container>
-        <v-row>
-          <v-col
-            cols="12"
-            md="6"
-            class="text-caption text-white d-flex flex-column ga-1"
-          >
-            <div class="d-flex align-center ga-2">
-              <v-icon size="small">mdi-email</v-icon>
-              <span>Email: <a href="mailto:srean.pao@nubb.edu.kh" class="text-white" target="_blank" rel="noopener">srean.pao@nubb.edu.kh</a></span>
-            </div>
-            <div class="d-flex align-center ga-2">
-              <v-icon size="small">mdi-phone</v-icon>
-              <span>Phone: <a href="tel:+855882424698" class="text-white">+855 882 424 698</a></span>
-            </div>
-            <div class="d-flex align-center ga-2">
-              <v-icon size="small">mdi-earth</v-icon>
-              <span>
-                Follow us:
-                <a href="#" class="text-white" target="_blank" rel="noopener">Facebook</a> |
-                <a href="#" class="text-white" target="_blank" rel="noopener">LinkedIn</a> |
-                <a href="#" class="text-white" target="_blank" rel="noopener">FTRIP Channel</a>
-              </span>
-            </div>
-          </v-col>
-
-          <v-col cols="12" md="6" class="text-caption text-white text-md-right">
-            <p>
-              Food Technology, Research and Innovation Platform (FTRIP) <br />
-              Secretariat: National University of Battambang, Cambodia
-            </p>
-          </v-col>
-        </v-row>
-      </v-container>
-    </v-footer>
+    <Footer />
   </v-app>
 </template>
 
 <script setup>
 import { ref } from "vue";
 import publication from "./publication.vue";
-
+import Footer from "../footer/Footer.vue";
+import Banners from "../banner/Banners.vue";
 
 // Colors
 const navColor = "#05204A";
