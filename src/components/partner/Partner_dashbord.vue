@@ -110,9 +110,9 @@
     <!-- banner -->
     <Banners />
     <!-- Overlay text -->
-    <div class="overlay pt-10">
+    <!-- <div class="overlay pt-10">
       <h1 class="overlay-text">Member & Partner</h1>
-    </div>
+    </div> -->
   </div>
 </v-main>
 

@@ -78,7 +78,7 @@
           <v-col cols="12" md="3">
             <v-card class="rounded-lg pa-4" elevation="2">
               <v-list nav dense>
-                <v-subheader class="font-weight-bold text-h6">About Us</v-subheader>
+                <v-subheader class="font-weight-bold text-h6">About</v-subheader>
                 <v-list-item-group color="primary">
                   <v-list-item
                     v-for="item in about_us"
@@ -99,7 +99,7 @@
             <v-card class="rounded-lg pa-6" elevation="2">
               <section>
                 <h2 class="text-h4 font-weight-bold" :style="{ color: '#05204A' }">
-                  About Us
+                  About
                 </h2>
                 <div v-for="item in about_us" :key="item.id">
                   <h3 :id="item.id" class="text-h5 font-weight-bold mt-6">
@@ -110,9 +110,9 @@
                   </p>
                 </div>
 
-                <p class="text-body-1 font-weight-bold mt-4">
+                <!-- <p class="text-body-1 font-weight-bold mt-4">
                   With support and collaboration from:
-                </p>
+                </p> -->
                 
               </section>
             </v-card>

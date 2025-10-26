@@ -1,5 +1,5 @@
 <template>
-<<<<<<< HEAD
+
   <v-main class="grey lighten-4">
     <v-container fluid class="py-10">
       <v-row justify="center">

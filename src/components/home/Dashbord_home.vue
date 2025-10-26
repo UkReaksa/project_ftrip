@@ -92,9 +92,7 @@
       </div>
 
       <!-- About new info -->
-      <div class="ml-6">
-        <h1 class="text-h5">New</h1>
-      </div>
+      
       <div
         class="ml-6 cursor-pointer d-flex justify-end mr-6"
       >
@@ -109,12 +107,12 @@
         <div class="mt-1">
           <New_infomation />
         </div>
-        <div class="text-center">
+        <!-- <div class="text-center">
           <h1>FTRIP Highlights</h1>
         </div>
         <div >
           <Ftrip_highlights />
-        </div>
+        </div> -->
    
  </v-main>
     <!-- Footer -->
