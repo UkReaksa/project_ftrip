@@ -10,7 +10,7 @@
         <strong>JOIN US:</strong> Membership is open to universities, research institutions,
         private companies, and associations engaged in food systems. Please contact us for
         more information via Telegram
-        <a href="https://t.me/+85586638641" target="_blank">here</a>.
+        <a href="https://t.me/ftriptech" target="_blank">here</a>.
       </v-card-text>
     </v-card>
   </v-container>
@@ -40,7 +40,7 @@
           <!-- ✅ Text Info -->
           <v-col cols="9">
             <h3 class="headline">{{ item.title }}</h3>
-            <p><strong>Phone:</strong> {{ item.phone }}</p>
+            <p><strong>Representatives:</strong> {{ item.phone }}</p>
             <p><strong>Email:</strong> {{ item.email }}</p>
             <p><strong>Address:</strong> {{ item.address }}</p>
             <p v-if="item.partner_link">
@@ -51,14 +51,14 @@
         </v-row>
 
         <!-- ✅ Videos -->
-        <v-row v-if="item.video.length" class="mt-2">
+        <!-- <v-row v-if="item.video.length" class="mt-2">
           <v-col cols="12">
             <h4 class="font-weight-medium mb-2">Videos:</h4>
             <div v-for="(vid, i) in item.video" :key="i" class="mb-2">
               <a :href="vid" target="_blank">{{ vid }}</a>
             </div>
           </v-col>
-        </v-row>
+        </v-row> -->
       </v-card>
     </v-col>
   </v-row>

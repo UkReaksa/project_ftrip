@@ -78,7 +78,7 @@
           <v-col cols="12" md="3">
             <v-card class="rounded-lg pa-4" elevation="2">
               <v-list nav dense>
-                <v-subheader class="font-weight-bold text-h6">About Us</v-subheader>
+                <v-subheader class="font-weight-bold text-h6">About</v-subheader>
                 <v-list-item-group color="primary">
                   <v-list-item
                     v-for="item in about_us"
@@ -99,7 +99,7 @@
             <v-card class="rounded-lg pa-6" elevation="2 main-content">
               <section>
                 <h2 class="text-h4 font-weight-bold" :style="{ color: '#05204A' }">
-                  About Us
+                  About
                 </h2>
 
                 <!-- Loop through about_us items -->
@@ -111,9 +111,13 @@
                   <p class="text-body-1 mt-2" v-html="item.description"></p>
                 </div>
 
+<<<<<<< HEAD
                 <p class="text-body-1 font-weight-bold mt-4">
                   With support and collaboration from:
                 </p>
+=======
+                
+>>>>>>> f544d5731d8a62e03e0e23456da65a33bbb40eee
               </section>
             </v-card>
           </v-col>
@@ -133,10 +137,12 @@ import Footer from "../footer/Footer.vue";
 
 const about_us = ref([]);
 
+
 // Fetch About Us API
 const fetchAboutUs = async () => {
   try {
     const response = await axios.get("https://ftrip.tech/api1/api/abouts");
+
     about_us.value = response.data.data;
   } catch (error) {
     console.error("Error fetching about us data:", error);
@@ -219,7 +225,7 @@ body {
   line-height: 1.6;
 }
 
-/* ✅ Bullet points spacing */
+
 .main-content ul {
   padding-left: 20px;
   margin-top: 8px;
@@ -227,7 +233,8 @@ body {
   list-style-type: disc;
 }
 
-/* ✅ Bold & underline styles */
+
+
 .main-content b {
   font-weight: 700;
   color: #05204A;

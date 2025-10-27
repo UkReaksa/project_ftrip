@@ -41,7 +41,7 @@
                   @click="goToSubPublication(item.id)"
                   v-if="item.sub_publications && item.sub_publications.length > 0"
                 >
-                  See All SubPublications
+                  Read More
                 </v-btn>
               </v-col>
 

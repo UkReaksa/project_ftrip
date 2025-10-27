@@ -5,7 +5,7 @@
       <v-col cols="12" md="4">
         <v-card class="pa-2 border" elevation="2">
           <v-img
-            src="./image/home_photo.jpg"
+            src="./image/home_photo2.jpg"
             aspect-ratio="16/9"
             class="rounded-lg"
           />
@@ -16,7 +16,7 @@
       <v-col cols="12" md="2" class="d-flex flex-column gap-4">
         <v-card class="pa-2 border" elevation="2">
           <v-img
-            src="./image/home_photo2.jpg"
+            src="./image/home_photo.jpg"
             aspect-ratio="16/9"
             class="rounded-lg"
           />
@@ -24,7 +24,7 @@
 
         <v-card class="pa-2 border" elevation="2">
           <v-img
-            src="./image/home_photo2.jpg"
+            src="./image/home_photo3.jpg"
             aspect-ratio="16/9"
             class="rounded-lg"
           />
@@ -33,19 +33,19 @@
 
       <!-- Text Section -->
       <v-col>
-        <v-card class="pa-5 text-centerv  border" elevation="2">
-          <h3 class="font-weight-bold">WELCOME TO FTRIP</h3>
-          <p class="text-body-2">
+        <v-card class="pa-15 border" elevation="2">
+          <h1 class="font-weight-bold text-center">WELCOME TO FTRIP</h1>
+          <h4 class="text-body-6 text-justify mt-4 ">
             The Food Technology, Research and Innovation Platform (FTRIP) is a
             national platform established to foster collaboration between
             academia, government, and the private sector in advancing food
             technology, research, and innovation in Cambodia.
-          </p>
-
-          <p class="text-body-2">
+          </h4>
+          <br>
+          <h4 class="text-body-6 text-justify mt-2">
             Our mission is to drive sustainable, safe, and competitive food value
             chains through research, innovation, and knowledge transfer.
-          </p>
+          </h4>
         </v-card>
       </v-col>
     </v-row>

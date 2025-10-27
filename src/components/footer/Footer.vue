@@ -46,7 +46,7 @@
                 :href="footer.follow_us.twitter"
                 target="_blank"
                 class="text-white"
-                >Twitter</a
+                >Telegram Channel</a
               >
             </span>
           </div>
