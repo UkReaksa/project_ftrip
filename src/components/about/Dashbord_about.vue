@@ -110,14 +110,9 @@
                   <!-- ✅ Render HTML content properly -->
                   <p class="text-body-1 mt-2" v-html="item.description"></p>
                 </div>
-
-<<<<<<< HEAD
                 <p class="text-body-1 font-weight-bold mt-4">
                   With support and collaboration from:
                 </p>
-=======
-                
->>>>>>> f544d5731d8a62e03e0e23456da65a33bbb40eee
               </section>
             </v-card>
           </v-col>
