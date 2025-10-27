@@ -110,9 +110,9 @@
     <!-- banner -->
     <Banners />
     <!-- Overlay text -->
-    <div class="overlay pt-10">
+    <!-- <div class="overlay pt-10">
       <h1 class="overlay-text">Member & Partner</h1>
-    </div>
+    </div> -->
   </div>
 </v-main>
 
@@ -122,7 +122,9 @@
       <div class="mt-1">
         <Partner_team />
       </div>
-
+        <!-- text -->
+      <h2 class="text-h6 ml-10 mt-10 mb-4 " :style="{ color: '#05204A' }">hello this new </h2>
+        <!--  -->
       <div class="mt-1">
         <Members />
       </div>

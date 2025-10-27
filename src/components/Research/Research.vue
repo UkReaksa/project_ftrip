@@ -1,5 +1,4 @@
 <template>
-<<<<<<< HEAD
   <v-main class="grey lighten-4">
     <v-container fluid class="py-10">
       <v-row justify="center">
@@ -70,7 +69,7 @@
       </v-row>
     </v-container>
   </v-main>
-=======
+
   <v-app>
     <v-container fluid>
       <v-row>
@@ -165,7 +164,7 @@
       </v-row>
     </v-container>
   </v-app>
->>>>>>> d25964936f7b86ee7ae9cce80ed6117548d8334c
+
 </template>
 
 <script setup>

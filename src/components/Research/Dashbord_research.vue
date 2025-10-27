@@ -103,15 +103,14 @@
       </v-list>
     </v-navigation-drawer>
 
-<<<<<<< HEAD
-=======
+
     <!-- Main Content -->
     <v-main class="grey lighten-4">
       <div class="mt-1">
         <Research /> 
       </div>
->>>>>>> d25964936f7b86ee7ae9cce80ed6117548d8334c
 
+    </v-main>
 
     <!-- Footer -->
     <Footer />
@@ -120,14 +119,11 @@
 
 <script setup>
 import { ref } from "vue";
-<<<<<<< HEAD
+
 import Footer from "../footer/Footer.vue";
 import Banners from "../banner/Banners.vue";
 import Research from "./Research.vue";
-=======
-import Research from "./Research.vue";
 
->>>>>>> d25964936f7b86ee7ae9cce80ed6117548d8334c
 
 // Colors
 const navColor = "#05204A";

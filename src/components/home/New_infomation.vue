@@ -31,17 +31,21 @@
             <p class="text-body-2 text-grey-darken-1 mb-2">
               {{ formatDate(item.created_at) }}
             </p>
-            <p class="text-body-1">
-              {{ truncateContent(item.content, 100) }}
-              <span
-                v-if="item.content && item.content.length > 100"
-                @click="goToDetail(item.id)"
-                style="color: #05204A; cursor: pointer; font-weight: bold;"
-                class="ml-1"
-              >
-                Read more
-              </span>
-            </p>
+
+            <!-- Render markdown safely as HTML -->
+            <p
+              class="text-body-1"
+              v-html="truncateContent(item.content, 100)"
+            ></p>
+
+            <span
+              v-if="item.content && item.content.length > 100"
+              @click="goToDetail(item.id)"
+              style="color: #05204A; cursor: pointer; font-weight: bold;"
+              class="ml-1"
+            >
+              Read more
+            </span>
           </v-card-text>
         </v-card>
       </v-col>
@@ -58,42 +62,48 @@
 import { ref, onMounted } from "vue";
 import axios from "axios";
 import { useRouter } from "vue-router";
+import { marked } from "marked"; // ✅ Markdown parser
 
 const router = useRouter();
 const events = ref([]);
 
 // Convert image path to full URL
 const getImageUrl = (path) => {
-  if (!path) return '/image/no-image.png';
-  if (path.startsWith('http')) return path;
-  const cleanPath = path.replace(/^\/+/, '');
+  if (!path) return "/image/no-image.png";
+  if (path.startsWith("http")) return path;
+  const cleanPath = path.replace(/^\/+/, "");
   return `https://ftrip.tech/storage/${cleanPath}`;
 };
 
 // Handle broken image
 const handleImageError = (event) => {
-  event.target.src = '/image/no-image.png';
+  event.target.src = "/image/no-image.png";
 };
 
-// Truncate text
+// Truncate + render markdown
 const truncateContent = (text, length) => {
   if (!text) return "No content available";
-  const cleanText = text.replace(/\r\n/g, ' ').replace(/\s+/g, ' ');
-  return cleanText.length > length ? cleanText.substring(0, length) + "..." : cleanText;
+  const cleanText = text.replace(/\r\n/g, " ").replace(/\s+/g, " ");
+  const truncated =
+    cleanText.length > length
+      ? cleanText.substring(0, length) + "..."
+      : cleanText;
+  // ✅ Convert Markdown (**bold**) to HTML
+  return marked.parse(truncated);
 };
 
 // Format date
 const formatDate = (dateString) => {
-  if (!dateString) return '';
-  const options = { year: 'numeric', month: 'long', day: 'numeric' };
+  if (!dateString) return "";
+  const options = { year: "numeric", month: "long", day: "numeric" };
   return new Date(dateString).toLocaleDateString(undefined, options);
 };
 
-// Fetch events
+// Fetch events from API
 const fetchEvents = async () => {
   try {
     const res = await axios.get("https://ftrip.tech/api1/api/posts");
-    events.value = res.data.data.map(e => ({
+    events.value = res.data.data.map((e) => ({
       ...e,
       images: e.images || [],
     }));
@@ -102,7 +112,7 @@ const fetchEvents = async () => {
   }
 };
 
-// Navigate to detail
+// Navigate to detail page
 const goToDetail = (id) => {
   router.push(`/event/${id}`);
 };

@@ -96,24 +96,24 @@
 
           <!-- Main Content -->
           <v-col cols="12" md="9">
-            <v-card class="rounded-lg pa-6" elevation="2">
+            <v-card class="rounded-lg pa-6" elevation="2 main-content">
               <section>
                 <h2 class="text-h4 font-weight-bold" :style="{ color: '#05204A' }">
                   About Us
                 </h2>
+
+                <!-- Loop through about_us items -->
                 <div v-for="item in about_us" :key="item.id">
                   <h3 :id="item.id" class="text-h5 font-weight-bold mt-6">
                     {{ item.title }}
                   </h3>
-                  <p class="text-body-1 mt-2">
-                    {{ item.description }}
-                  </p>
+                  <!-- ✅ Render HTML content properly -->
+                  <p class="text-body-1 mt-2" v-html="item.description"></p>
                 </div>
 
                 <p class="text-body-1 font-weight-bold mt-4">
                   With support and collaboration from:
                 </p>
-                
               </section>
             </v-card>
           </v-col>
@@ -137,7 +137,6 @@ const about_us = ref([]);
 const fetchAboutUs = async () => {
   try {
     const response = await axios.get("https://ftrip.tech/api1/api/abouts");
-    // ✅ Fix: take only data array
     about_us.value = response.data.data;
   } catch (error) {
     console.error("Error fetching about us data:", error);
@@ -148,13 +147,14 @@ onMounted(async () => {
   await fetchAboutUs();
 });
 
-// Colors
+// Navbar colors
 const navColor = "#05204A";
 const navColor1 = "#FFFFFF";
 
 // Drawer state
 const drawer = ref(false);
 
+// Smooth scroll to section
 function scrollToSection(id) {
   const element = document.getElementById(id);
   if (element) {
@@ -182,6 +182,13 @@ const links = [
 </script>
 
 <style scoped>
+/* ✅ Import Khmer OS Battambang font */
+@import url('https://fonts.googleapis.com/css2?family=Battambang:wght@400;700&display=swap');
+
+* {
+  font-family: "Battambang", "Khmer OS Battambang", sans-serif;
+}
+
 .line-height-1 {
   line-height: 1;
 }
@@ -191,7 +198,6 @@ const links = [
 }
 
 body {
-  font-family: "Inter", sans-serif;
   background-color: #f3f4f6;
   color: #333;
 }
@@ -209,5 +215,27 @@ body {
 .main-content p,
 .main-content ul li {
   color: #4b5563;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+/* ✅ Bullet points spacing */
+.main-content ul {
+  padding-left: 20px;
+  margin-top: 8px;
+  margin-bottom: 8px;
+  list-style-type: disc;
+}
+
+/* ✅ Bold & underline styles */
+.main-content b {
+  font-weight: 700;
+  color: #05204A;
+}
+
+.main-content u {
+  text-decoration: underline;
+  text-decoration-color: #05204A;
+  text-underline-offset: 3px;
 }
 </style>
