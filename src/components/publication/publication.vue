@@ -6,9 +6,9 @@
         label="Search Publications"
         append-icon="mdi-magnify"
         outlined
-        class="border-thin"
         dense
         hide-details
+        variant="outlined"
         clearable
         @keyup.enter="searchPublications"
       ></v-text-field>
@@ -37,7 +37,7 @@
           <v-img
             v-if="item.image && item.image.length > 0"
             :src="`https://ftrip.tech/storage/${item.image[0]}`"
-            height="500px"
+            height="300px"
             class="rounded-t-lg"
             cover
           ></v-img>
@@ -73,7 +73,6 @@
               Read More
               <v-icon end>mdi-open-in-new</v-icon>
             </v-btn>
-
           </v-card-actions>
         </v-card>
       </v-col>
@@ -93,7 +92,9 @@ const router = useRouter();
 // Fetch all publications
 const fetchPublication = async () => {
   try {
-    const response = await axios.get("https://ftrip.tech/api1/api/publications");
+    const response = await axios.get(
+      "https://ftrip.tech/api1/api/publications"
+    );
     publication.value = response.data.data;
   } catch (error) {
     console.error("Error fetching publication:", error);

@@ -1,213 +1,105 @@
 <template>
   <v-app>
     <!-- Top Navbar -->
-    <v-app-bar :color="navColor"></v-app-bar>
+    <navbar />
 
-    <!-- Main Navbar -->
-    <v-app-bar :color="navColor1" flat class="elevation-2 rounded">
-      <!-- Logo + Title -->
-      <div class="d-flex align-center ml-4">
-        <v-img
-          src="/image/ftrip.png"
-          alt="Company Logo"
-          class="mr-2 rounded"
-          contain
-          width="50"
-          height="50"
-        />
-        <div class="d-flex flex-column">
-          <span class="text-subtitle-2 font-weight-bold line-height-1">
-            FOOD TECHNOLOGY,
-          </span>
-          <span class="text-subtitle-2 font-weight-bold line-height-1">
-            RESEARCH & INNOVATION PLATFORM
-          </span>
-        </div>
+    <!-- Banner Section -->
+    <v-main class="mt-2">
+      <div class="carousel-wrapper">
+        <Banners />
       </div>
-
-      <v-spacer></v-spacer>
-      <div class="d-none d-md-flex">
-        <v-btn to="/" text>Home</v-btn>
-        <v-btn to="/partner" text>Partner</v-btn>
-        <v-btn to="/dashbord_service" text>Service</v-btn>
-        <v-btn to="/dadhbord_research" text>Research & Innovation</v-btn>
-        <v-btn to="/events" text>Events</v-btn>
-        <v-btn to="/dadhbord_publication" text>Publications</v-btn>
-        <v-btn to="/dashbord_about/" text>About Us</v-btn>
-      </div>
-
-      
-
-      <!-- ✅ Mobile Menu Toggle -->
-      <v-app-bar-nav-icon
-        class="d-sm-none mr-4"
-        @click.stop="drawer = !drawer"
-      />
-
-      <!-- ✅ Right Logos -->
-      <div class="d-flex align-center mr-4">
-        <v-img
-          src="/image/1.png"
-          alt="Company Logo 1"
-          class="rounded"
-          contain
-          width="50"
-          height="50"
-        />
-        <v-img
-          src="/image/2.png"
-          alt="Company Logo 2"
-          class="rounded"
-          contain
-          width="50"
-          height="50"
-        />
-        <v-img
-          src="/image/3.png"
-          alt="Company Logo 3"
-          class="rounded"
-          contain
-          width="50"
-          height="50"
-        />
-      </div>
-    </v-app-bar>
-
-    <!-- ✅ Mobile Drawer -->
-    <v-navigation-drawer v-model="drawer" temporary>
-      <v-list dense>
-        <v-list-item
-          v-for="link in links"
-          :key="link.text"
-          :to="link.to"
-          link
-          router
-          @click="drawer = false"
-        >
-          <v-list-item-title>{{ link.text }}</v-list-item-title>
-        </v-list-item>
-      </v-list>
-    </v-navigation-drawer>
-
-    <!-- ✅ Page Content -->
-    <!-- <v-container fluid class="pa-0">
-      <div class="hero-section">
-        <v-img
-          src="/image/home_photo2.jpg"
-          alt="Members Banner"
-          height="350"
-          class="rounded-lg"
-          cover
-        >
-          <div class="overlay">
-            <h1 class="overlay-text">Member & Partner</h1>
-          </div>
-        </v-img>
-      </div>
-    </v-container> -->
-   <v-main class="mt-2">
-  <div class="carousel-wrapper">
-    <!-- banner -->
-    <Banners />
-    <!-- Overlay text -->
-    <!-- <div class="overlay pt-10">
-      <h1 class="overlay-text">Member & Partner</h1>
-    </div> -->
-  </div>
-</v-main>
-
+    </v-main>
 
     <v-main>
-
+      <!-- Partner Section -->
       <div class="mt-1">
         <Partner_team />
       </div>
-        <!-- text -->
-      <h2 class="text-h6 ml-10 mt-10 mb-4 " :style="{ color: '#05204A' }">hello this new </h2>
-        <!--  -->
+
+      <!-- 🔥 Display Events Section -->
+      <div class="my-6 ml-14">
+     
+          <v-col
+
+            cols="12"
+            
+            v-for="event in events"
+            :key="event.id"
+            class="mx-auto"
+          >
+              <div
+                v-html="event.text"
+                class="text-body-1 event-content"
+              ></div>
+          
+          </v-col>
+      
+      </div>
+
+      <!-- Members Section -->
       <div class="mt-1">
         <Members />
       </div>
     </v-main>
 
-    <!--  Footer -->
-      <div class="mt-5">
-          <Footer />
-      </div>
-  
+    <!-- Footer -->
+    <div class="mt-5">
+      <Footer />
+    </div>
   </v-app>
 </template>
 
 <script setup>
-import { ref } from "vue";
+import { ref, onMounted } from "vue";
+import axios from "axios";
 import Partner_team from "./Partner_team.vue";
 import Members from "./members.vue";
 import Footer from "../footer/Footer.vue";
 import Banners from "../banner/Banners.vue";
+import navbar from "../navbar/navbar.vue";
 
+const events = ref([]);
 
-// Colors
-const navColor = "#05204A";
-const navColor1 = "#FFFFFF";
+const fetchEvents = async () => {
+  try {
+    const res = await axios.get("https://ftrip.tech/api1/api/events");
+    events.value = res.data;
+  } catch (e) {
+    console.error("Failed to fetch events", e);
+  }
+};
 
-
-
-// Drawer state
-const drawer = ref(false);
-const links = [
-  { text: "Home", to: "/" },
-  { text: "Partner", to: "/partner" },
-  { text: "Service", to: "/dashbord_service" },
-  { text: "Research & Innovation", to: "/dadhbord_research" },
-  { text: "Events", to: "/events" },
-  { text: "Publications", to: "/dadhbord_publication" },
-  { text: "About Us", to: "/dashbord_about" },
-];
-
-
+onMounted(fetchEvents);
 </script>
 
 <style scoped>
-.line-height-1 {
-  line-height: 1;
+/* Make sure event text shows correctly (with line breaks, bold, etc.) */
+.event-content {
+  white-space: pre-line; /* keeps line breaks from textarea */
+  line-height: 1.6;
+  color: #333;
 }
 
-.text-subtitle-2 {
-  font-size: 1.1rem;
+/* Optional styling for formatted text */
+.event-content b {
+  font-weight: bold;
+}
+.event-content i {
+  font-style: italic;
+}
+.event-content u {
+  text-decoration: underline;
 }
 
-.hero-section {
-  position: relative;
+/* Smooth hover effect for cards */
+.v-card {
+  transition: box-shadow 0.3s ease, transform 0.2s ease;
+}
+.v-card:hover {
+  transform: translateY(-3px);
 }
 
-.overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
- 
-}
-
-.overlay-text {
-  font-size: 2.5rem;
-  font-weight: 800;
-  color: white;
-  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
-}
-
-.section-title {
-  font-size: 1.6rem;
-  font-weight: 900;
-}
-.overlay-text {
-  color: white;
-  font-size: 2.5rem;
-  font-weight: 800;
-  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
-}
+/* Layout styling */
 .carousel-wrapper {
   position: relative;
 }

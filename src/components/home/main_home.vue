@@ -1,39 +1,35 @@
 <template>
-  <v-container fluid class="mb-16 border">
+  <v-container fluid class="mb-16 ">
     <v-row class="d-flex justify-center border">
       <!-- Left Side Large Image -->
       <v-col cols="12" md="4">
-        <v-card class="pa-2 border" elevation="2">
+      
           <v-img
             src="./image/home_photo2.jpg"
             aspect-ratio="16/9"
             class="rounded-lg"
           />
-        </v-card>
+      
       </v-col>
 
       <!-- Right Side with 2 stacked images -->
       <v-col cols="12" md="2" class="d-flex flex-column gap-4">
-        <v-card class="pa-2 border" elevation="2">
+       
           <v-img
             src="./image/home_photo.jpg"
             aspect-ratio="16/9"
             class="rounded-lg"
           />
-        </v-card>
-
-        <v-card class="pa-2 border" elevation="2">
           <v-img
-            src="./image/home_photo3.jpg"
+            src="./image/home4.jpg"
             aspect-ratio="16/9"
             class="rounded-lg"
           />
-        </v-card>
+    
       </v-col>
 
       <!-- Text Section -->
-      <v-col>
-        <v-card class="pa-15 border" elevation="2">
+      <v-col class=" justify-end mt-14">
           <h1 class="font-weight-bold text-center">WELCOME TO FTRIP</h1>
           <h4 class="text-body-6 text-justify mt-4 ">
             The Food Technology, Research and Innovation Platform (FTRIP) is a
@@ -46,7 +42,7 @@
             Our mission is to drive sustainable, safe, and competitive food value
             chains through research, innovation, and knowledge transfer.
           </h4>
-        </v-card>
+      
       </v-col>
     </v-row>
   </v-container>

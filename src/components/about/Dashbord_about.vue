@@ -1,75 +1,8 @@
 <template>
   <v-app>
-    <!-- Top Color Bar -->
-    <v-app-bar :color="navColor"></v-app-bar>
 
     <!-- Main Navbar -->
-    <v-app-bar :color="navColor1" flat class="elevation-2 rounded">
-      <!-- Logo + Title -->
-      <div class="d-flex align-center ml-4">
-        <v-img
-          src="/image/ftrip.png"
-          alt="Company Logo"
-          class="mr-2 rounded"
-          contain
-          width="50"
-          height="50"
-        />
-        <div class="d-flex flex-column">
-          <span class="text-subtitle-2 font-weight-bold line-height-1">
-            FOOD TECHNOLOGY,
-          </span>
-          <span class="text-subtitle-2 font-weight-bold line-height-1">
-            RESEARCH & INNOVATION PLATFORM
-          </span>
-        </div>
-      </div>
-
-      <v-spacer></v-spacer>
-
-      <!-- Desktop Menu -->
-      <div class="d-none d-md-flex">
-        <v-btn v-for="link in links" :key="link.text" :to="link.to" text>
-          {{ link.text }}
-        </v-btn>
-      </div>
-
-      <!-- Mobile Menu Toggle -->
-      <v-app-bar-nav-icon
-        class="d-md-none mr-4"
-        @click.stop="drawer = !drawer"
-      />
-
-      <!-- Partner Logos -->
-      <div class="d-flex align-center mr-4 d-none d-sm-flex">
-        <v-img
-          v-for="(logo, index) in logos"
-          :key="index"
-          :src="logo.src"
-          :alt="logo.alt"
-          class="rounded ml-2"
-          contain
-          width="50"
-          height="50"
-        />
-      </div>
-    </v-app-bar>
-
-    <!-- Mobile Drawer -->
-    <v-navigation-drawer v-model="drawer" temporary>
-      <v-list dense>
-        <v-list-item
-          v-for="link in links"
-          :key="link.text"
-          :to="link.to"
-          link
-          @click="drawer = false"
-        >
-          <v-list-item-title>{{ link.text }}</v-list-item-title>
-        </v-list-item>
-      </v-list>
-    </v-navigation-drawer>
-
+      <navbar/>
     <!-- Main Content -->
     <v-main class="grey lighten-4">
       <v-container fluid class="py-10">
@@ -110,9 +43,7 @@
                   <!-- ✅ Render HTML content properly -->
                   <p class="text-body-1 mt-2" v-html="item.description"></p>
                 </div>
-                <p class="text-body-1 font-weight-bold mt-4">
-                  With support and collaboration from:
-                </p>
+               
               </section>
             </v-card>
           </v-col>
@@ -129,6 +60,7 @@
 import { onMounted, ref } from "vue";
 import axios from "axios";
 import Footer from "../footer/Footer.vue";
+import navbar from "../navbar/navbar.vue";
 
 const about_us = ref([]);
 
@@ -163,23 +95,7 @@ function scrollToSection(id) {
   }
 }
 
-// Partner logos
-const logos = [
-  { src: "/image/1.png", alt: "Partner 1" },
-  { src: "/image/2.png", alt: "Partner 2" },
-  { src: "/image/3.png", alt: "Partner 3" },
-];
 
-// Navigation links
-const links = [
-  { text: "Home", to: "/" },
-  { text: "Partner", to: "/partner" },
-  { text: "Service", to: "/dashbord_service" },
-  { text: "Research & Innovation", to: "/dadhbord_research" },
-  { text: "Events", to: "/events" },
-  { text: "Publications", to: "/dadhbord_publication" },
-  { text: "About Us", to: "/dashbord_about" },
-];
 </script>
 
 <style scoped>

@@ -1,80 +1,8 @@
 <template>
   <v-app>
-    <!-- Top App Bar -->
-    <v-app-bar :color="navColor" app></v-app-bar>
-
-    <!-- Main Navbar -->
-    <v-app-bar :color="navColor1" flat class="elevation-2 rounded" app>
-      <div class="d-flex align-center ml-4">
-        <v-img
-          src="/image/ftrip.png"
-          alt="Company Logo"
-          class="mr-2 rounded"
-          contain
-          width="50"
-          height="50"
-        />
-        <div class="d-flex flex-column">
-          <span class="text-subtitle-2 font-weight-bold line-height-1">
-            FOOD TECHNOLOGY,
-          </span>
-          <span class="text-subtitle-2 font-weight-bold line-height-1">
-            RESEARCH & INNOVATION PLATFORM
-          </span>
-        </div>
-      </div>
-
-      <v-spacer></v-spacer>
-
-      <!-- Desktop Menu -->
-      <div class="d-none d-md-flex">
-        <v-btn to="/" text>Home</v-btn>
-        <v-btn to="/partner" text>Partner</v-btn>
-        <v-btn to="/dashbord_service" text>Service</v-btn>
-        <v-btn to="/dadhbord_research" text>Research & Innovation</v-btn>
-        <v-btn to="/events" text>Events</v-btn>
-        <v-btn to="/dadhbord_publication" text>Publications</v-btn>
-        <v-btn to="/dashbord_about" text>About Us</v-btn> <!-- Fixed route -->
-      </div>
-
-      <!-- Mobile Menu Toggle -->
-      <v-app-bar-nav-icon
-        class="d-md-none mr-4"
-        @click.stop="drawer = !drawer"
-        aria-label="Open navigation menu"
-      />
-
-      <!-- Partner Logos -->
-      <div class="d-flex align-center mr-4">
-        <v-img
-          src="/image/1.png"
-          alt="Company Logo 1"
-          class="rounded mx-1"
-          contain
-          width="50"
-          height="50"
-          loading="lazy"
-        />
-        <v-img
-          src="/image/2.png"
-          alt="Company Logo 2"
-          class="rounded mx-1"
-          contain
-          width="50"
-          height="50"
-          loading="lazy"
-        />
-        <v-img
-          src="/image/3.png"
-          alt="Company Logo 3"
-          class="rounded mx-1"
-          contain
-          width="50"
-          height="50"
-          loading="lazy"
-        />
-      </div>
-    </v-app-bar>
+    <!-- Top Navbar -->
+      <navbar/>
+      <!--  -->
       <v-main class="mt-2">
   <div class="carousel-wrapper">
     <!-- banner -->
@@ -120,6 +48,7 @@ import { ref } from "vue";
 import publication from "./publication.vue";
 import Footer from "../footer/Footer.vue";
 import Banners from "../banner/Banners.vue";
+import navbar from "../navbar/navbar.vue";
 
 // Colors
 const navColor = "#05204A";
@@ -127,17 +56,6 @@ const navColor1 = "#FFFFFF";
 
 // Mobile drawer state
 const drawer = ref(false);
-
-// Navigation links (used in mobile drawer)
-const links = [
-  { text: "Home", to: "/" },
-  { text: "Partner", to: "/partner" },
-  { text: "Service", to: "/dashbord_service" },
-  { text: "Research & Innovation", to: "/dadhbord_research" },
-  { text: "Events", to: "/events" },
-  { text: "Publications", to: "/dadhbord_publication" },
-  { text: "About Us", to: "/dashbord_about" },
-];
 
 </script>
 

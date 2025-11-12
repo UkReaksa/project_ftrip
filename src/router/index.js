@@ -13,6 +13,8 @@ import Dashbord_publication from "@/components/publication/Dashbord_publication.
 import Dashbord_research from "@/components/Research/Dashbord_research.vue";
 import All_publication from "@/components/publication/All_publication.vue";
 import test from "@/test.vue";
+import Expertise_dashbord from "@/components/expertise/Expertise_dashbord.vue";
+import Expertise_detail from "@/components/expertise/Expertise_detail.vue";
 
 
 
@@ -89,6 +91,16 @@ const router = createRouter({
       name: "all_publication",
       component: All_publication,
     },
+    {
+      path: "/expertise_dashbord",
+      name: "expertise_dashbord",
+      component: Expertise_dashbord,
+    },
+    {
+      path: "/expertise_detail/:id",
+      name: "expertise_detail",
+      component: Expertise_detail,
+    }
   ],
 });
 

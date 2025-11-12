@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class=" px-5 py-2">
     <v-skeleton-loader
       v-if="loading"
       type="image"

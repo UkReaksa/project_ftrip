@@ -2,22 +2,28 @@
   <v-container>
     <h1 class="text-h5 font-weight-bold mb-4">All Events</h1>
 
-    <v-row>
+    <v-row align="stretch"> <!-- ✅ This makes all columns stretch evenly -->
       <v-col
         v-for="item in events.slice(0, 3)"
         :key="item.id"
         cols="12"
         sm="6"
         md="4"
+        class="d-flex"
       >
-        <v-card class="mx-auto" variant="outlined" max-width="400" elevation="2">
-          <!-- Show first image if exists -->
+        <v-card
+          class="d-flex flex-column w-100"
+          variant="outlined"
+          elevation="2"
+          style="flex: 1;"
+        >
+          <!-- Image -->
           <v-img
             v-if="item.images && item.images.length > 0"
             :src="getImageUrl(item.images[0].image_url)"
             height="200"
             cover
-            @error="handleImageError($event)"
+            @error="handleImageError"
           />
           <v-img
             v-else
@@ -26,23 +32,20 @@
             cover
           />
 
-          <v-card-text>
-            <h3 class="text-h6 font-weight-bold">{{ item.title }}</h3>
-            <p class="text-body-2 text-grey-darken-1 mb-2">
-              {{ formatDate(item.created_at) }}
-            </p>
-
-            <!-- Render markdown safely as HTML -->
-            <p
-              class="text-body-1"
-              v-html="truncateContent(item.content, 100)"
-            ></p>
+          <v-card-text class="flex-grow-1 d-flex flex-column justify-between">
+            <div>
+              <h3 class="text-h6 font-weight-bold">{{ item.title }}</h3>
+              <p class="text-body-2 text-grey-darken-1 mb-2">
+                {{ formatDate(item.created_at) }}
+              </p>
+              <p class="text-body-1" v-html="truncateContent(item.content, 100)"></p>
+            </div>
 
             <span
               v-if="item.content && item.content.length > 100"
               @click="goToDetail(item.id)"
               style="color: #05204A; cursor: pointer; font-weight: bold;"
-              class="ml-1"
+              class="mt-auto"
             >
               Read more
             </span>
@@ -57,6 +60,7 @@
     </div>
   </v-container>
 </template>
+
 
 <script setup>
 import { ref, onMounted } from "vue";

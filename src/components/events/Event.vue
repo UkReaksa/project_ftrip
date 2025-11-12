@@ -13,80 +13,71 @@
   class="mb-6 custom-search"
 />
 
-    <v-row>
-      <v-col
-        v-for="item in filteredEvents"
-        :key="item.id"
-        cols="12"
-        sm="6"
-        md="4"
-      >
-        <v-card class="mx-auto" variant="outlined" max-width="400" elevation="2">
-          <!-- Image Thumbnail with +N overlay -->
-          <div style="position: relative;">
-            <v-img
-              v-if="item.images && item.images.length > 0"
-              :src="getImageUrl(firstImage(item.images))"
-              height="200"
-              cover
-              class="cursor-pointer"
-              @click="openImagePreview(firstImage(item.images))"
-              @error="handleImageError"
-            />
-            <v-img
-              v-else
-              src="/image/no-image.png"
-              height="200"
-              cover
-            />
+   <v-row align="stretch">
+  <v-col
+    v-for="item in filteredEvents"
+    :key="item.id"
+    cols="12"
+    sm="6"
+    md="4"
+    class="d-flex"
+  >
+    <v-card
+      class="mx-auto d-flex flex-column"
+      variant="outlined"
+      max-width="400"
+      elevation="2"
+      style="flex: 1;"
+    >
+      <div style="position: relative;">
+        <v-img
+          v-if="item.images && item.images.length > 0"
+          :src="getImageUrl(firstImage(item.images))"
+          height="200"
+          cover
+          class="cursor-pointer"
+          @click="openImagePreview(firstImage(item.images))"
+          @error="handleImageError"
+        />
+        <v-img
+          v-else
+          src="/image/no-image.png"
+          height="200"
+          cover
+        />
 
-            <!-- Red overlay for extra images -->
-            <v-chip
-              v-if="item.images && item.images.length > 1"
-              color="red"
-              text-color="white"
-              size="small"
-              class="more-images-chip"
-            >
-              +{{ item.images.length - 1 }}
-            </v-chip>
-          </div>
+        <v-chip
+          v-if="item.images && item.images.length > 1"
+          color="red"
+          text-color="white"
+          size="small"
+          class="more-images-chip"
+        >
+          +{{ item.images.length - 1 }}
+        </v-chip>
+      </div>
 
-          <v-card-text>
-            <h3 class="text-h6 font-weight-bold">{{ item.title }}</h3>
-            <p class="text-body-2 text-grey-darken-1 mb-2">
-              {{ formatDate(item.created_at) }}
-            </p>
+      <v-card-text class="flex-grow-1">
+        <h3 class="text-h6 font-weight-bold">{{ item.title }}</h3>
+        <p class="text-body-2 text-grey-darken-1 mb-2">
+          {{ formatDate(item.created_at) }}
+        </p>
+        <p class="text-body-1">
+          {{ truncateContent(item.content, 100) }}
+          <span
+            v-if="item.content && item.content.length > 100"
+            @click="goToDetail(item.id)"
+            style="color: #05204A; cursor: pointer; font-weight: bold;"
+            class="ml-1"
+          >
+            Read more
+          </span>
+        </p>
+      </v-card-text>
+    </v-card>
+  </v-col>
+</v-row>
 
-            <!-- Show category -->
-            <div v-if="item.categories && item.categories.length > 0" class="mb-2">
-              <!-- <v-chip
-                v-for="cat in item.categories"
-                :key="cat.id"
-                color="#05204A"
-                text-color="white"
-                size="small"
-                class="mr-1"
-              >
-                {{ cat.name }}
-              </v-chip> -->
-            </div>
-
-            <p class="text-body-1">
-              {{ truncateContent(item.content, 100) }}
-              <span
-                v-if="item.content && item.content.length > 100"
-                @click="goToDetail(item.id)"
-                style="color: #05204A; cursor: pointer; font-weight: bold;"
-                class="ml-1"
-              >
-                Read more
-              </span>
-            </p>
-          </v-card-text>
-        </v-card>
-      </v-col>
-    </v-row>
 
     <div v-if="filteredEvents.length === 0" class="text-center py-8">
       <v-icon size="64" color="grey-lighten-1">mdi-calendar-blank</v-icon>

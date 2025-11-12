@@ -10,26 +10,28 @@
         sm="6"
         md="4"
       >
-        <v-card class="mx-auto" max-width="400" elevation="3">
-          <!-- Display first image -->
+        <div
+          class="border border-gray-300 rounded-lg overflow-hidden hover:shadow-lg transition-all duration-300 cursor-pointer bg-white px-2 "
+          @click="goToDetail(item.id)"
+        >
+          <!-- Image -->
           <v-img
             v-if="item.image && item.image.length"
             :src="`https://ftrip.tech/storage/${item.image[0]}`"
-            height="180px"
+             height="200px"
+          
             cover
             class="rounded-t-lg"
           />
 
-          <v-card class="ma-2 pa-2" @click="goToDetail(item.id)">
-            <v-card-title class="text-h6 font-weight-bold">
-              {{ item.title }}
-            </v-card-title>
+          <!-- Content -->
+          <div class="p-4">
+           
+             <div class="text-sm font-semibold mb-2 line-clamp-3" v-html="item.title"></div>
 
-            <v-card-subtitle class="text-caption">
-              {{ item.description }}
-            </v-card-subtitle>
-          </v-card>
-        </v-card>
+             <div class="text-sm text-gray-600 line-clamp-3" v-html="item.description"></div>
+          </div>
+        </div>
       </v-col>
     </v-row>
   </v-container>
@@ -46,7 +48,7 @@ const services = ref([]);
 const fetchServices = async () => {
   try {
     const response = await axios.get("https://ftrip.tech/api1/api/services");
-    services.value = response.data.data; // access the data array
+    services.value = response.data.data;
   } catch (error) {
     console.error("Error fetching services:", error);
   }
@@ -54,7 +56,23 @@ const fetchServices = async () => {
 
 onMounted(fetchServices);
 
-function goToDetail(id) {
+const goToDetail = (id) => {
   router.push(`/service/${id}`);
-}
+};
 </script>
+
+<style scoped>
+.line-clamp-1 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+}
+
+.line-clamp-3 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+</style>

@@ -1,81 +1,8 @@
 <template>
     <v-app>
+    <!-- navbar -->
+      <navbar/> 
 
-            <!-- Top App Bar -->
-    <v-app-bar :color="navColor" app></v-app-bar>
-
-    <!-- Main Navbar -->
-    <v-app-bar :color="navColor1" flat class="elevation-2 rounded" app>
-      <div class="d-flex align-center ml-4">
-        <v-img
-          src="/image/ftrip.png"
-          alt="Company Logo"
-          class="mr-2 rounded"
-          contain
-          width="50"
-          height="50"
-        />
-        <div class="d-flex flex-column">
-          <span class="text-subtitle-2 font-weight-bold line-height-1">
-            FOOD TECHNOLOGY,
-          </span>
-          <span class="text-subtitle-2 font-weight-bold line-height-1">
-            RESEARCH & INNOVATION PLATFORM
-          </span>
-        </div>
-      </div>
-
-      <v-spacer></v-spacer>
-
-      <!-- Desktop Menu -->
-      <div class="d-none d-md-flex">
-        <v-btn to="/" text>Home</v-btn>
-        <v-btn to="/partner" text>Partner</v-btn>
-        <v-btn to="/dashbord_service" text>Service</v-btn>
-        <v-btn to="/dadhbord_research" text>Research & Innovation</v-btn>
-        <v-btn to="/events" text>Events</v-btn>
-        <v-btn to="/dadhbord_publication" text>Publications</v-btn>
-        <v-btn to="/dashbord_about" text>About Us</v-btn> <!-- Fixed route -->
-      </div>
-
-      <!-- Mobile Menu Toggle -->
-      <v-app-bar-nav-icon
-        class="d-md-none mr-4"
-        @click.stop="drawer = !drawer"
-        aria-label="Open navigation menu"
-      />
-
-      <!-- Partner Logos -->
-      <div class="d-flex align-center mr-4">
-        <v-img
-          src="/image/1.png"
-          alt="Company Logo 1"
-          class="rounded mx-1"
-          contain
-          width="50"
-          height="50"
-          loading="lazy"
-        />
-        <v-img
-          src="/image/2.png"
-          alt="Company Logo 2"
-          class="rounded mx-1"
-          contain
-          width="50"
-          height="50"
-          loading="lazy"
-        />
-        <v-img
-          src="/image/3.png"
-          alt="Company Logo 3"
-          class="rounded mx-1"
-          contain
-          width="50"
-          height="50"
-          loading="lazy"
-        />
-      </div>
-    </v-app-bar>
     <v-main>
            <v-container class="py-10">
     <div v-if="loading" class="loading-text">
@@ -143,6 +70,7 @@ import { ref, onMounted } from "vue";
 import axios from "axios";
 import { useRoute } from "vue-router";
 import Footer from "../footer/Footer.vue";
+import navbar from "../navbar/navbar.vue";
 const route = useRoute();
 const publication = ref(null);
 const loading = ref(true);
